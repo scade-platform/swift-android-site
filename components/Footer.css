@@ -1,0 +1,21 @@
+
+.footer {
+  padding: 2rem;
+
+}
+
+.footer-nav {
+  display: flex;
+  
+  gap: 1rem;
+}
+
+.footer-nav a {
+
+  text-decoration: none;
+}
+
+.footer-nav img {
+  width: 24px;
+  height: 24px;
+}
