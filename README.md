@@ -22,8 +22,7 @@ If server does not start try updating npm
 npm install -g npm
 ```
 
-If you do not have npm installed visit https://nodejs.org/en/download/ or https://github.com/nodesource/distributions and follow the instruction on the website of your choise to download npm and Node.js.
-For Linux users https://github.com/nodesource/distributions is recomended.
+If you do not have npm installed, visit https://nodejs.org/en/download/ or https://github.com/nodesource/distributions and follow the instruction on the website of your choice to download npm and Node.js. For Linux users, https://github.com/nodesource/distributions is recommended.
 
 Open [http://localhost:3000](http://localhost:3000) in your browser to see the result.
 
