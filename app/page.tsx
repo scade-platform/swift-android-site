@@ -1,11 +1,6 @@
 
-
-import fs from "fs";
-import { Autour_One } from "next/font/google";
 import Image from "next/image";
-import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
-import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
-import  {InfoHome}  from "@/components/InfoHome";
+
 //md file
 import DynamicTextField from '../components/DynamicTextField';
 import getDynamicTextFieldMetadata from '../utils/getDynamicTextField';
