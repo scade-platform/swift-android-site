@@ -1,0 +1,22 @@
+/* Ensure the navbar container aligns everything properly */
+.navbar {
+  display: flex;
+  align-items: center; /* Vertically align all items to the centerline */
+  justify-content: space-between; /* Keep menu items on the left and GitHub button on the right */
+  width: 100%; /* Ensure the navbar spans the full width */
+  height: 100%; /* Match the height of the navbar */
+}
+
+/* Align the navigation links */
+.navbar-links {
+  display: flex;
+  align-items: center; /* Vertically align links */
+  gap: 16px; /* Add spacing between links */
+}
+
+/* Ensure the GitHub button stays on the right */
+.navbar-github {
+  display: flex;
+  align-items: center; /* Vertically align the GitHub button */
+  margin-left: auto; /* Push the GitHub button to the far right */
+}

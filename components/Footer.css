@@ -1,4 +1,3 @@
-
 .footer {
   padding: 2rem;
 
@@ -6,13 +5,21 @@
 
 .footer-nav {
   display: flex;
-  
-  gap: 1rem;
+  justify-content: center; /* Center the links horizontally */
+  align-items: center; /* Align items vertically to their centerlines */
+  gap: 16px; /* Add spacing between the links */
 }
 
 .footer-nav a {
+  display: flex;
+  align-items: center; /* Align the icon and text vertically */
+  text-decoration: none; /* Remove underline from links */
+  color: inherit; /* Inherit text color */
+  font-size: 16px; /* Adjust font size if needed */
+}
 
-  text-decoration: none;
+.footer-nav a svg {
+  margin-right: 8px; /* Add spacing between the icon and text */
 }
 
 .footer-nav img {
