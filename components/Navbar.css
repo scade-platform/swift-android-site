@@ -1,22 +1,38 @@
 /* Ensure the navbar container aligns everything properly */
 .navbar {
   display: flex;
-  align-items: center; /* Vertically align all items to the centerline */
-  justify-content: space-between; /* Keep menu items on the left and GitHub button on the right */
-  width: 100%; /* Ensure the navbar spans the full width */
-  height: 100%; /* Match the height of the navbar */
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1rem;
+  height: 4rem; /* Adjust height as needed */
 }
 
 /* Align the navigation links */
 .navbar-links {
   display: flex;
-  align-items: center; /* Vertically align links */
-  gap: 16px; /* Add spacing between links */
+  gap: 1.5rem;
+}
+
+.nav-link {
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 500;
+  color: black; /* Default color for light mode */
+}
+
+.nav-link.active {
+  font-weight: 600;
+}
+
+/* Dark mode styles */
+@media (prefers-color-scheme: dark) {
+  .nav-link {
+    color: white; /* Change text color to white in dark mode */
+  }
 }
 
 /* Ensure the GitHub button stays on the right */
 .navbar-github {
   display: flex;
-  align-items: center; /* Vertically align the GitHub button */
-  margin-left: auto; /* Push the GitHub button to the far right */
+  align-items: center;
 }
