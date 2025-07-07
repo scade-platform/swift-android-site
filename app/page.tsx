@@ -1,5 +1,6 @@
 
 import Image from "next/image";
+import getConfig from "next/config";
 
 //md file
 import DynamicTextField from '../components/DynamicTextField';
@@ -18,7 +19,8 @@ export default function Home() {
   //md file
   const postMatadata = getDynamicTextFieldMetadata ("content/HomePage")
   
- 
+  const { publicRuntimeConfig } = getConfig();
+  const basePath = publicRuntimeConfig?.basePath || "";
 
  
   return (
@@ -39,7 +41,7 @@ export default function Home() {
         <Image
           className="dark"
           
-          src="/logo-swift.png"
+          src={'${basePath}/logo-swift.png'}
           alt="Next.js logo"
          
           width={200}
@@ -74,8 +76,8 @@ export default function Home() {
             rel="noopener noreferrer"
           >
             <Image
-              className="dark:invert"
-              src="/vercel.svg"
+              className="dark:invert"              
+              src={'${basePath}/vercel.svg'}
               alt="Vercel logomark"
               width={20}
               height={20}
