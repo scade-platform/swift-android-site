@@ -6,8 +6,10 @@ const withMDX = createMDX();
 const config = {
   reactStrictMode: true,
   output: 'export',
+  basePath: '/swift-android-site',
+  assetPrefix: '/swift-android-site/',
   images: {
-    unoptimized: true, // Disable next/image optimization for static exports
+    unoptimized: true,
   },
 };
 
