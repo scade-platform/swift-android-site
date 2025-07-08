@@ -1,6 +1,5 @@
 
 import Image from "next/image";
-import getConfig from "next/config";
 
 //md file
 import DynamicTextField from '../components/DynamicTextField';
@@ -11,17 +10,10 @@ import  Footer  from "@/components/footer";
 
 
 
-
-
-
-
 export default function Home() {
   //md file
   const postMatadata = getDynamicTextFieldMetadata ("content/HomePage")
-  
-  const { publicRuntimeConfig } = getConfig();
-  const basePath = publicRuntimeConfig?.basePath || "";
-
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
  
   return (
     <div className="grid grid-rows-[10px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-10 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
