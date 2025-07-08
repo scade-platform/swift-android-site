@@ -41,7 +41,7 @@ export default function Home() {
         <Image
           className="dark"
           
-          src={'${basePath}/logo-swift.png'}
+          src={`${basePath}/logo-swift.png`}
           alt="Next.js logo"
          
           width={200}
@@ -77,7 +77,7 @@ export default function Home() {
           >
             <Image
               className="dark:invert"              
-              src={'${basePath}/vercel.svg'}
+              src={`${basePath}/vercel.svg`}
               alt="Vercel logomark"
               width={20}
               height={20}
