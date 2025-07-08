@@ -1,6 +1,8 @@
 ---
 title: Introduction 
 ---
+
+
 <H2>Our Mission</H2>
 
 Our mission at SCADE is to provide a software platform to build native mobile applications for iOS and Android using the Swift programming language.
@@ -9,26 +11,21 @@ The SCADE platform contains the following main components:
 
 - the **SCADE Swift compiler for Android** that compiles Swift source code into native Android code 
 - the interop component **Swift4J** that makes calling the Swift code on Android super easy
+- a toolchain including comand line interpreter 
 
 
 <H2>Swift for Android compiler</H2>
 
-Our Swift compiler takes Swift source code and compiles this into native binary image for the Android platform. Both x86 and ARM are supported on both 32bit and 64bit platforms
+Our Swift compiler takes Swift source code and compiles this into native binary image (AAR file) for the Android platform. Both x86 and ARM are supported on both 32bit and 64bit platforms
 
 ![img](file:./img/448093c-scadecompiler.png)
 
 SCADE has vast experience in Swift for Android, maintaining the compiler since Version 4.0.
 
-
-
 <H2>Swift4J</H2>
 
-The **swift4j** toolkit is a set of libraries and tools making possible a seamless interoperability between Swift and Java/Kotlin. Besides the **swift4j** Swift package presented in this repository there are also a set of Gradle plugins and the Swift Toolchain for Android allowing smooth integration of the Swift libraries into the desktop and mobile applications written in Java/Kotlin.  See the [readme](https://github.com/scade-platform/swift4j/) for technical details
-
-
-
-
-
+The **swift4j** toolkit is a set of libraries and tools making possible a seamless interoperability between Swift and Java/Kotlin. Swift4J includes a set of Gradle plugins and the Swift Toolchain for Android allowing smooth integration of the Swift libraries into the desktop and mobile applications written in Java/Kotlin.  See the [readme](https://github.com/scade-platform/swift4j/) for technical details
+ 
 <H2>Our Roadmap</H2>
 
 SCADE exists for quite some time now, where in the earlier years we provided support for both UI and none UI functionality. This included our beautiful [Nimble](https://github.com/scade-platform/Nimble) IDE and SCADE graphics and UI engine. We changed this approach to not spread ourselves too thin and focus on delivering the functionality in phases:
