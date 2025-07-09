@@ -3,30 +3,49 @@ title: Supported Libraries
 description: You can use a large number of Swift libraries on Android. The following chapter provides some insights and a list of tested libraries
 ---
 
-# Supported Libraries
+# Supported Libraries 
 
 You can use a large number of Swift libraries on Android. The following chapter provides some insights and a list of tested libraries
 
 ## General rule
-You can use any Swift library on Android that fits the following criteria
+You can use any Swift library on Android that fits the following criteria 
 
-### Option 1: Libaries available as source code
-* Available as Swift source code
-* Depends only on one or more of the following system libraries
-	* Swift Foundation
-	* Swift libdispatch
+### Option 1: Libraries available as source code
+* Library is available as Swift source code 
 
-### Option 2: Libaries available Android binary
+* Depends only on Open Source Libraries such as
+    * Swift Foundation
+    * Swift Dispatch
+    * Swift-log
+    * ...
+    
+* Does not depend on
+    * Closed source libraries
+
+* Does not include objC code
+
+    
+### Option 2: Libaries available as Android binary
 * C library that is precompiled and runs on Android ARM / x86
 * A good example is SQLite
 
 
 ## List of libraries
-Here is our list of libraries tested. We continously add to this list. The libraries can be very easy be added to the project in Android using Gradle and the maven dependency
+Here is our list of libraries we tested and/or provide examples for
+
+* We continously add to this list
+* If your libraries is not on the list, it **doesnt mean it doesnt work**, we just haven't provided an example yet or tested it officially
+* There are 100s of libraries that work and are not listed here
+* If you want to add a library here or have a desire to support a specific library, please contact us on Discord
+
+
+
+### Sample - not complete -  list of libraries that work nicely on Android
 
 |Category  | Library name | Description | Example | Demostrated |
 |----------|----------|----------|----------|----------|
 | General  | Swift Foundation   | Access all Foundation functionality in Android   |  [WeatherService](https://github.com/scade-platform/swift4j-examples/tree/main/Packages/WeatherService)  | HTTP|
+| General  | Swift NIO   | Use Swift NIO on Android   |   | Networking |
+| General  | libdispatch   |  libdispatch  |   |  |
 | Database  | SQLite   | Use SQLite on Android   |   |SQLite|
 | Database |  [GRDB](https://github.com/groue/GRDB.swift)  | Use of GRDB on Android   | [SimpleDB](https://github.com/scade-platform/swift4j-examples/blob/main/Packages/SimpleDB/Sources/SimpleDB/Database.swift) | GRDB
-
