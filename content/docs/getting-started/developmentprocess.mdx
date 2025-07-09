@@ -1,10 +1,10 @@
 ---
-title: SCADE Applogic Development Process
+title: Development Process Overview
 description: Describes general process on how to build Android native mobile apps with Swift 
 ---
 
 # Develop Android Apps with Swift in 5 simple steps
-This chapter describes how to develop and use Swift 6.x code across iOS and Android and drastically reduce your development time. This chapter provides a quick overview and is not meant as a development guide. See our HelloWorld development guide for details.
+This chapter provide brief overview how to develop and use Swift 6.x code across iOS and Android and drastically reduce your development time. This chapter provides a quick overview and is not meant as a development guide. See our HelloWorld development guide for details.
 
 
 
@@ -34,13 +34,24 @@ public class GreetingService {
 You then use the SCADE CLI to compile the code into an AAR file.
 
 ## 4. Reference the AAR file in Android Studio, create interop code
-In Android Studion, you then reference the AAR file using our SCADE gradle plugin
+In Android Studion, you then install the Swift gradle plugin 
 
 ```groovy
 plugins {
   id("io.scade.gradle.plugins.swiftpm") version "1.0.3" 
 }
 ```
+and reference the Swift code (now a binary AAR fie)
+
+```groovy
+swiftpm { 
+  // Path to the Swift package
+  path = file("<PACKAGE LOCATION>")
+  // Name of the package's product (dynamic) containing exposed Swift targets
+  product = "<PRODUCT NAME>"
+}
+```
+
 ## 5. Call the Swift code using Kotlin or Java
 The Swift code is now ready to be used on Android
 
