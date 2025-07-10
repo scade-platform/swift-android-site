@@ -5,17 +5,18 @@ import "./Footer.css"
 import { FaGithub, FaXTwitter, FaLinkedin } from "react-icons/fa6";
 
 const Footer = () => {
+  const currentYear = new Date().getFullYear();
   return (
     <footer className="footer">
       <nav className="footer-nav">
-        <Link href="/docs">© 2025 SCADE, Inc.</Link>
-        <Link href="/github" aria-label="GitHub">
+        <Link href="/docs">© {currentYear} SCADE, Inc.</Link>
+        <Link href="https://github.com/scade-platform" target="_blank" aria-label="GitHub">
           <FaGithub />
         </Link>
-        <Link href="/linkedin" aria-label="LinkedIn">
+        <Link href="https://www.linkedin.com/company/scade-mobile/" target="_blank" aria-label="LinkedIn">
           <FaLinkedin />
         </Link>
-        <Link href="/x" aria-label="X">
+        <Link href="https://x.com/scade_platform" target="_blank" aria-label="X">
           <FaXTwitter />
         </Link>
       </nav>
