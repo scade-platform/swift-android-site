@@ -1,11 +1,11 @@
 "use client"
-import { Geist, Geist_Mono } from "next/font/google";
+import {Geist, Geist_Mono} from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
-import { ReactLenis } from "lenis/react";
-import { RootProvider } from 'fumadocs-ui/provider';
-import { ThemeProvider } from 'next-themes'
-import { useEffect } from "react";
+import {ReactLenis} from "lenis/react";
+import {RootProvider} from 'fumadocs-ui/provider';
+import {ThemeProvider} from 'next-themes'
+import {useEffect} from "react";
 
 
 const geistSans = Geist({
@@ -24,8 +24,8 @@ const geistMono = Geist_Mono({
 //};
 
 export default function RootLayout({
-  children,
-}: {
+                                     children,
+                                   }: {
   children: React.ReactNode;
 }) {
 
@@ -38,39 +38,35 @@ export default function RootLayout({
   }, []);
   return (
     <html lang="en" suppressHydrationWarning>
-      
-        
-        
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased flex flex-col min-h-screen`}>
-          <ReactLenis 
+
+
+    <body
+      className={`${geistSans.variable} ${geistMono.variable} antialiased flex flex-col`}>
+    <ReactLenis
       root
       options={{
         // Learn more -> https://github.com/darkroomengineering/lenis?tab=readme-ov-file#instance-settings
         lerp: 0.05,
-      }}> 
+      }}>
 
       <ThemeProvider
-          enableSystem={true} // Enable system theme detection
-          attribute="class"   // Apply themes using the "class" attribute
-          defaultTheme="system" // Default to system theme
-        > 
-          <Navbar/>
-        
-          
-          
-          <RootProvider>{children}</RootProvider>
+        enableSystem={true} // Enable system theme detection
+        attribute="class"   // Apply themes using the "class" attribute
+        defaultTheme="system" // Default to system theme
+      >
+        <Navbar/>
 
-        
-          
-        </ThemeProvider>
-        
-          </ReactLenis>
-      </body>
-      
-      
-      
+
+        <RootProvider>{children}</RootProvider>
+
+
+      </ThemeProvider>
+
+    </ReactLenis>
+    </body>
+
+
     </html>
-    
+
   );
 }

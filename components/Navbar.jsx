@@ -1,13 +1,11 @@
 "use client";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
-import GitHubButton from "react-github-btn";
+import {usePathname} from "next/navigation";
 import "./Navbar.css";
 
 const navigation = [
-  { name: "Home", href: "/" },
-  { name: "Docs", href: "/docs" },
-  { name: "About", href: "/about-Us" },
+  {name: "Home", href: "/"},
+  {name: "Docs", href: "/docs"}
 ];
 
 export default function Navbar() {
@@ -27,18 +25,6 @@ export default function Navbar() {
             {item.name}
           </Link>
         ))}
-      </div>
-      <div className="navbar-github">
-        <GitHubButton
-          href="https://github.com/scade-platform/swift-android"
-          data-color-scheme="no-preference: light; light: light; dark: dark;"
-          data-icon="octicon-star"
-          data-size="large"
-          data-show-count="true"
-          aria-label="Star buttons/github-buttons on GitHub"
-        >
-          Star
-        </GitHubButton>
       </div>
     </nav>
   );
