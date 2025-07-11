@@ -1,10 +1,19 @@
 ---
 title: Development Process
-description: Describes general process on how to build Android native mobile apps with Swift 
+description: Describes general process on how to build Android native mobile apps with Swift
 ---
 
 # Develop Android Apps with Swift in 5 simple steps
+<<<<<<< HEAD
 ![img](./../img/5stepsandroid.svg)
+=======
+This chapter provide brief overview how to develop and use Swift 6.x code across iOS and Android and drastically reduce your development time. This chapter provides a quick overview and is not meant as a development guide. See our HelloWorld development guide for details.
+
+
+
+
+![img](/5stepsandroid.svg)
+>>>>>>> 0b7e623c955cdb8a6067079e1de4a1d0aff82c05
 
 ## 1. Develop application logic code
 Application logic refers to the non-UI components of a mobile application—the parts that handle data processing, business rules, and state management. In MVVM architecture, this typically includes the Model and ViewModel layers. You develop all this code from your XCode IDE.
@@ -14,13 +23,13 @@ You use the @JVM annotation on your source code to define what code shall be com
 
 
 ```swift
-import Swift4j // import @jvm macro and supporting types 
+import Swift4j // import @jvm macro and supporting types
 
 // @jvm automatically exposes the annoted class together with
 // all methods that can be exposed
-@jvm 
+@jvm
 public class GreetingService {
-  func greet(name: String, _ response: (String) -> Void) {        
+  func greet(name: String, _ response: (String) -> Void) {
     response("Swift greets \(name)")
   }
 }
@@ -29,17 +38,17 @@ public class GreetingService {
 You then use the SCADE CLI and the SCADE Swift for Android compiler to compile the Swift source code into Android native library, which is shipped as an AAR file.
 
 ## 4. Reference the AAR file in Android Studio, create interop code
-In Android Studion, you then install the Swift gradle plugin 
+In Android Studion, you then install the Swift gradle plugin
 
 ```groovy
 plugins {
-  id("io.scade.gradle.plugins.swiftpm") version "1.0.3" 
+  id("io.scade.gradle.plugins.swiftpm") version "1.0.3"
 }
 ```
 and reference the Swift code (now a binary AAR file)
 
 ```groovy
-swiftpm { 
+swiftpm {
   // Path to the Swift package
   path = file("<PACKAGE LOCATION>")
   // Name of the package's product (dynamic) containing exposed Swift targets
@@ -54,14 +63,14 @@ The Swift code is now ready to be used on Android
 import swift4j_examples.GreetingService
 
 // The Swift dynamic library has to be loaded once prior
-// the use of any exposed type  
+// the use of any exposed type
 System.loadLibrary("swift4-examples")
 
-// Create an instance of the exposed class 
+// Create an instance of the exposed class
 val greetings = GreetingService()
-// And call the 'greet' method passing a Kotlin lambda  
+// And call the 'greet' method passing a Kotlin lambda
 greetings.greet("Android") { resp ->
-  print(resp)    
+  print(resp)
 }
 // Output: Swift greets Android!
 ```
