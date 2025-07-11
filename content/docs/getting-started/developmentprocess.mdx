@@ -4,11 +4,6 @@ description: Describes general process on how to build Android native mobile app
 ---
 
 # Develop Android Apps with Swift in 5 simple steps
-This chapter provide brief overview how to develop and use Swift 6.x code across iOS and Android and drastically reduce your development time. This chapter provides a quick overview and is not meant as a development guide. See our HelloWorld development guide for details.
-
-
-
-
 ![img](./../img/5stepsandroid.svg)
 
 ## 1. Develop application logic code
@@ -31,7 +26,7 @@ public class GreetingService {
 }
 ```
 ## 3. Compile the code using SCADE CLI
-You then use the SCADE CLI to compile the code into an AAR file.
+You then use the SCADE CLI and the SCADE Swift for Android compiler to compile the Swift source code into Android native library, which is shipped as an AAR file.
 
 ## 4. Reference the AAR file in Android Studio, create interop code
 In Android Studion, you then install the Swift gradle plugin 
