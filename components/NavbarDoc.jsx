@@ -7,9 +7,7 @@ import DynamicNavbar from './DynamicNavbar';
 export default function NavbarDoc  ({ children }){
   const postMatadata = getDynamicNavbarDocMetadata ("content/docs")
   return (
-    <div as="nav" className=""style={{position:'fixed'
-      
-    }}>
+    <div as="nav" className="fixed">
       <nav className={styles.sidebar}>
         <h2>Navigation</h2>
         {<div className="container">

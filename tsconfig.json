@@ -33,8 +33,11 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "app/page.jsx"
-, "components/InfoHome.js", "next.config.mjs", "next.config.mjs", "app/page.tsx"  ],
+    "app/page.jsx",
+    "next.config.mjs",
+    "next.config.mjs",
+    "app/page.tsx"
+  ],
   "exclude": [
     "node_modules"
   ]
