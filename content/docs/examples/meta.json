@@ -1,4 +1,4 @@
 {
     "title": "Examples",
-    "pages": ["foundation", "simple-db"]
+    "pages": ["weather-service", "simple-db"]
   }
