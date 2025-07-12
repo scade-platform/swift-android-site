@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import CodeBlock from "@/components/CodeBlock";
 
 export default function Home() {
@@ -67,7 +68,7 @@ Arrays.mapReversed(arr) {
           Lower your development cost and increase revenue with SCADE AppLogic
           for native cross application development
         </p>
-        <img src={`${basePath}/landing/fast.svg`} className="img-fluid inline-block" alt="logo"/>
+        <Image src={`${basePath}/landing/fast.svg`} width="753" height="316" className="img-fluid inline-block" alt="logo"/>
         <div className="hidden">
           UI Code
           30%
@@ -99,7 +100,7 @@ Arrays.mapReversed(arr) {
         <h2 className="text-2xl font-bold mt-12 mb-12">
           How does it work ?
         </h2>
-        <img src={`${basePath}/landing/how.svg`} className="img-fluid inline-block" alt="logo"/>
+        <Image src={`${basePath}/landing/how.svg`} width="668" height="162" className="img-fluid inline-block" alt="logo"/>
         <div className="hidden">
           iOS App
           Android App
@@ -121,7 +122,7 @@ Arrays.mapReversed(arr) {
         <h2 className="text-2xl font-bold mt-12 mb-12">
           Swift library support
         </h2>
-        <img src={`${basePath}/landing/support.svg`} className="img-fluid inline-block" alt="logo"/>
+        <Image src={`${basePath}/landing/support.svg`} width="668" height="322" className="img-fluid inline-block" alt="logo"/>
         <div className="hidden">
           iOS App
           Android App
