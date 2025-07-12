@@ -6,7 +6,7 @@ import './CodeBlock.css';
 import 'prismjs/components/prism-kotlin';
 import 'prismjs/components/prism-swift';
 
-export default function CodeBlock({code , language }) {
+export default function CodeBlock({code , language }: { code: string, language: string }) {
   useEffect(() => {
     Prism.highlightAll();
   }, []);
