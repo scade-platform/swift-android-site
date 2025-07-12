@@ -11,11 +11,12 @@ const navigation = [
 
 export default function Navbar() {
   const pathname = usePathname();
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
   return (
     <nav className="navbar content">
       <Link href='/' className="navbar-brand">
-        <img src={'./logo-scade.svg'} className="img-fluid" alt="logo"/>
+        <img src={`${basePath}/logo-scade.svg`} className="img-fluid" alt="logo"/>
       </Link>
       <div className="navbar-links ml-[auto] px-6">
         {navigation.map((item) => (
