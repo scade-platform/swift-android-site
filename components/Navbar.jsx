@@ -15,7 +15,7 @@ export default function Navbar() {
   return (
     <nav className="navbar content">
       <Link href='/' className="navbar-brand">
-        <img src={'/logo-scade.svg'} className="img-fluid" alt="logo"/>
+        <img src={'./logo-scade.svg'} className="img-fluid" alt="logo"/>
       </Link>
       <div className="navbar-links ml-[auto] px-6">
         {navigation.map((item) => (
