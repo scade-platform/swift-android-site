@@ -35,7 +35,7 @@ Arrays.mapReversed(arr) {
         <p className="mb-8">
           SCADE enables you to develop native Swift application code for Android and iOS
         </p>
-        <Link href='/' className="bg-accent color-background px-8 py-2 inline-block rounded-md font-bold mb-8 hover:opacity-80">
+        <Link href='/docs/getting-started/installation' className="bg-accent color-background px-8 py-2 inline-block rounded-md font-bold mb-8 hover:opacity-80">
           Get Started
         </Link>
       </main>
