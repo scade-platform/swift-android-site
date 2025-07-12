@@ -24,7 +24,7 @@ export default function Navbar() {
             key={item.name}
             href={item.href}
             target={item.target}
-            className={`nav-link ${
+            className={`nav-link md:px-8 ${
               pathname === item.href ? "active" : ""
             }`}
           >

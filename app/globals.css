@@ -5,7 +5,8 @@
 :root {
   --background: #ffffff;
   --foreground: #0a0a0a;
-  --accent: #7F7F7F;
+  --muted: #7F7F7F;
+  --accent: #1B6081;
   --ios: #FD9226;
   --android: #51A637;
   --breakpoint-xs: 480px;
@@ -21,7 +22,8 @@
   :root {
     --background: #0a0a0a;
     --foreground: #ffffff;
-    --accent: #d3d3d3;
+    --accent: #56bef3;
+    --muted: #d3d3d3;
     --ios: #FD9226;
     --android: #51A637;
   }
@@ -44,6 +46,15 @@
 .color-android {
   color: var(--android);
 }
+.color-foreground {
+  color: var(--foreground);
+}
+.color-background {
+  color: var(--background);
+}
+.bg-accent{
+  background-color: var(--accent);
+}
 
 body {
   color: var(--foreground);
@@ -58,5 +69,12 @@ body {
   margin: 0 auto;
   width: 100%;
   max-width: 900px;
+}
+
+.section {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 760px;
+  padding: 0 30px;
 }
 

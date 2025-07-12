@@ -1,11 +1,26 @@
 import Link from "next/link";
+import CodeBlock from "@/components/CodeBlock";
 
 export default function Home() {
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+  const swiftCode = `
+@jvm
+class Arrays {
+  static func mapReversed(_ arr: [Int], fct: (Int) -> Int) -> [Int] {
+    return arr.reversed().map(fct)
+  }
+}
+`.trim();
+  const kotlinCode = `
+val arr = longArrayOf(1, 2, 3)
+Arrays.mapReversed(arr) {
+  it + 1
+}
+`.trim();
   return (
     <div
-      className="content text-center">
-
-      <main className="">
+      className="section text-center max-w-[600px]">
+      <main className="mt-52">
         <div className="inline-block themed-icon">
           <svg width="68" height="36" viewBox="0 0 68 36" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
             <path d="M0 0H15.5246V7.33981H7.56325V30.0583H15.5246V36H0V0Z"/>
@@ -13,59 +28,47 @@ export default function Home() {
             <path d="M67.5246 36H52V28.6602H59.96131V5.94175H52V0H67.5246V36Z"/>
           </svg>
         </div>
-        <h1 className="color-ios">
-          <b>Swift For Android</b>
+        <h1 className="color-ios mt-2 font-bold text-xl mb-4">
+          Swift For Android
         </h1>
-        <p>
+        <p className="mb-8">
           SCADE enables you to develop native Swift application code for Android and iOS
         </p>
-        <Link href='/' className="">
+        <Link href='/' className="bg-accent color-background px-8 py-2 inline-block rounded-md font-bold mb-8 hover:opacity-80">
           Get Started
         </Link>
       </main>
       <section>
-        <p>
-          With SCADE <span className="color-ios">AppLogic</span> you use Swift code on both Swift and Android
+        <p className="mb-8 mt-6">
+          With SCADE <span className="color-ios font-bold">AppLogic</span> you use Swift code on both Swift and Android
         </p>
         <div className="border-ios">
-          <p className="color-ios">
+          <p className="color-ios font-bold mt-4">
             Develop your Code in Swift
           </p>
-          <pre className="text-left p-4 focus-visible:outline-none font-[family-name:var(--font-geist-mono)]">
-            <code lang="swift">
-            {`            @jvm
-            class Arrays {
-              static func mapReversed(_ arr: [Int], fct: (Int) -> Int) -> [Int] {
-                return arr.reversed().map(fct)
-              }
-            }`}
-            </code>
-          </pre>
+          <CodeBlock language="swift" code={swiftCode}/>
         </div>
-        <div className="border-android">
-          <p className="color-android">
-            Develop your Code in Swift
+        <div className="border-android mt-6 mb-8">
+          <p className="color-android font-bold mt-4">
+            Use it on Android
           </p>
-          <pre className="text-left p-4 focus-visible:outline-none font-[family-name:var(--font-geist-mono)]">
-            <code lang="kotlin">
-            {`            val arr = longArrayOf(1, 2, 3)
-
-            Arrays.mapReversed(arr) {
-              it + 1
-            }`}
-            </code>
-          </pre>
+          <CodeBlock language="kotlin" code={kotlinCode}/>
         </div>
-        <p>
+        <p className="mb-8">
           SCADE <b>AppLogic</b> takes the pain and cost out of <b>cross platform native mobile development</b>.
           You develop your app logic in Swift and compile and run it on both iOS and Android.
         </p>
       </section>
       <section>
-        <h2>
+        <h2 className="text-2xl font-bold mt-12 mb-12">
           Develop faster.  Reduce development cost
         </h2>
-        <div>
+        <p className="mb-8">
+          Lower your development cost and increase revenue with SCADE AppLogic
+          for native cross application development
+        </p>
+        <img src={`${basePath}/landing/fast.svg`} className="img-fluid inline-block" alt="logo"/>
+        <div className="hidden">
           UI Code
           30%
           UI Code
@@ -91,16 +94,13 @@ export default function Home() {
           iOS
           Android
         </div>
-        <p>
-          Lower your development cost and increase revenue with SCADE AppLogic
-          for native cross application development
-        </p>
       </section>
       <section>
-        <h2>
+        <h2 className="text-2xl font-bold mt-12 mb-12">
           How does it work ?
         </h2>
-        <div>
+        <img src={`${basePath}/landing/how.svg`} className="img-fluid inline-block" alt="logo"/>
+        <div className="hidden">
           iOS App
           Android App
           Swift
@@ -112,16 +112,17 @@ export default function Home() {
           Swift Binary
           library (AAR)
         </div>
-        <p>
+        <p className="mt-6">
           Develop your app logic in Swift, compile the code to a native AAR file, and easily call the Swift code using Java or Kotlin.
           SCADE <b>AppLogic</b> consist of the Android compiler to create the AAR file and the generator to create the Java / Kotlin access layer (Swift4J).
         </p>
       </section>
       <section>
-        <h2>
+        <h2 className="text-2xl font-bold mt-12 mb-12">
           Swift library support
         </h2>
-        <div>
+        <img src={`${basePath}/landing/support.svg`} className="img-fluid inline-block" alt="logo"/>
+        <div className="hidden">
           iOS App
           Android App
           Swift
@@ -141,19 +142,16 @@ export default function Home() {
           ...
           ...
         </div>
-        <p>
+        <p className="mt-6">
           Use popular 3rd party libraries to speed up development and run it one both platforms.
           SCADE <b>AppLogic</b> ensures seamless use of your favorite library both on iOS and Android
         </p>
-        <ul>
+        <ul className="grid grid-cols-2 md:grid-cols-3 gap-2 list-disc text-left max-w-[600px] mx-auto mt-8">
           <li>
             Swift Foundation
           </li>
           <li>
             Alamofire
-          </li>
-          <li>
-            Swift Foundation
           </li>
           <li>
             SQLite
@@ -169,12 +167,12 @@ export default function Home() {
           </li>
         </ul>
       </section>
-      <section>
-        <h2>
+      <section className="pb-20">
+        <h2 className="text-2xl font-bold mt-12 mb-6">
           More Questions
         </h2>
         <p>
-          For more answers, see our frequently asked question & answer section <Link href="/docs">here</Link>
+          For more answers, see our frequently asked question & answer section <Link href="/docs" className="underline hover:no-underline underline-offset-4">here</Link>
         </p>
       </section>
     </div>
