@@ -100,7 +100,7 @@ Arrays.mapReversed(arr) {
         <h2 className="text-2xl font-bold mt-12 mb-12">
           How does it work ?
         </h2>
-        <Image src={`${basePath}/landing/how.svg`} width="668" height="162" className="img-fluid inline-block" alt="logo"/>
+        <Image src={`${basePath}/landing/how.svg`} width="668" height="162" className="img-fluid inline-block dark:bg-white rounded-3xl" alt="logo"/>
         <div className="hidden">
           iOS App
           Android App
@@ -122,7 +122,7 @@ Arrays.mapReversed(arr) {
         <h2 className="text-2xl font-bold mt-12 mb-12">
           Swift library support
         </h2>
-        <Image src={`${basePath}/landing/support.svg`} width="668" height="322" className="img-fluid inline-block" alt="logo"/>
+        <Image src={`${basePath}/landing/support.svg`} width="668" height="322" className="img-fluid inline-block dark:bg-white rounded-3xl" alt="logo"/>
         <div className="hidden">
           iOS App
           Android App
