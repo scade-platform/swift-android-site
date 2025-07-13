@@ -88,7 +88,7 @@ This is not included by default.
 	        .macOS(.v13)
 	       ],
 	```
-This ensures a minimum version and avoids compiler errors. 
+	This ensures a minimum version and avoids compiler errors. 
 
 9. Change 2: You need to set the **library target type** to **dynamic**:
 
@@ -117,7 +117,7 @@ This ensures a minimum version and avoids compiler errors.
 	)
 	```
 
-The entire updated package file now looks like below. Insteaf of making the changes yourself, you might copy the entire code into Xcode package.swift file.
+	The entire updated package file now looks like below. Insteaf of making the changes yourself, you might copy the entire code into Xcode package.swift file.
 
 ```swift
 
