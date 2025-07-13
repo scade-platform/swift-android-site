@@ -3,9 +3,12 @@ title: Hello World Tutorial
 description: Tutorial to develop minimal Swift Android App
 ---
 
+## Goals
 - Develop minimal Swift for Android app 
 - that uses Swift code written in Xcode
 - show in detail the important steps common to each project
+
+
 
 # Develop in Xcode
 
@@ -17,6 +20,11 @@ description: Tutorial to develop minimal Swift Android App
 ```
 ## Create Xcode project 
 2. Create an Xcode project that contains your shared code
+
+```swift
+swift package init --type library --name HelloWorld
+```
+Make sure to use it from  **inside** your project directory
 
 ```bash filename="Terminal"
 ./Projects/HelloWorld  % swift package init --type library --name HelloWorld
@@ -118,7 +126,6 @@ This ensures a minimum version and avoids compiler errors.
 
 The entire updated package file now looks like below. Insteaf of making the changes yourself, you might copy the entire code into Xcode package.swift file.
 
-
 ```swift
 // swift-tools-version: 5.10
 // The swift-tools-version declares the minimum version of Swift required to build this package.
@@ -164,6 +171,7 @@ let package = Package(
     ]
 )
 ```
+
 ## Build should now be successful
 Your build should now be successful. In some cases, you also need to give permission to access the Swift4j library. You can do this using Xcode by clicking on the error message and approving the library.
 
