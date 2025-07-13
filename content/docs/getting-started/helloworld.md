@@ -65,9 +65,9 @@ Creating Tests/HelloWorldTests/HelloWorldTests.swift\
 ## Add @jvm to compile the class to Android
 Now we make the changes to be able to compile the class to Android
 
-5. Add @jvm to the classes you want to compile to Android. In our case here, we add @jvm to the GreetingService class
+5. Add **@jvm** to the classes you want to compile to Android. In our case here, we add **@jvm** to the GreetingService class
 
-6. The @jvm annotation is part of the Swif4J library. Please import Swift4J using **import Swift4j** (smaller case j)
+6. The **@jvm** annotation is part of the Swift4J library. Please import Swift4J using **import Swift4j** (pay attention to the smaller case j)
 
 ```swift
 import Swift4j
@@ -84,9 +84,9 @@ public class GreetingService {
 ![img](./../img/helloworld-xcode2.png)
 
 ## Add Swift4J dependency in package.swift
-To compile the Swift project, you now need to add the necessary dependencies and modify the **package.swift** as described here.
+To fix the compile errors and compile the Swift project, you now need to add the necessary dependencies and modify the **package.swift** as described here.
 
-The steps describe the necessary changes. Either carefully make the changes yourself for learning and training purposes. Alternative copy and replace the package.swift from the code snippet below.
+The steps describe the necessary changes. Either carefully make the changes yourself for learning and training purposes to the existing package.swift or alternative copy and replace the package.swift from the code snippet at the bottom.
 
 8. Change 1: Add a **platform** with minimum version
 This is not included by default.
@@ -123,10 +123,9 @@ This ensures a minimum version and avoids compiler errors.
 	    .product(name: "Swift4j", package: "swift4j")              
 	  ]
 	)
-```
+	```
 
 The entire updated package file now looks like below. Insteaf of making the changes yourself, you might copy the entire code into Xcode package.swift file.
-
 
 ```swift
 
