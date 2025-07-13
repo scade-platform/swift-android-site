@@ -3,16 +3,16 @@ title: Hello World Tutorial
 description: Tutorial to develop a minimal Android App using Swift
 ---
 
-# Part 1 - Develop in Xcode
+### Part 1 - Develop in Xcode
 
-## Create Xcode project directory
+### Create Xcode project directory
 1. Create directory **HelloWorld** that contains your Swift library
 	
 ```bash filename="Terminal"
 ./Projects % mkdir HelloWorld
 ```
 	
-## Create Xcode project 
+### Create Xcode project 
 2. Create an Xcode project that contains your shared code
 
 ```swift
@@ -35,7 +35,7 @@ Creating Tests/
 Creating Tests/HelloWorldTests/
 Creating Tests/HelloWorldTests/HelloWorldTests.swift\
 ```
-## Open project in Xcode and add first Swift class
+### Open project in Xcode and add first Swift class
 
 3. Open project in Xcode
 
@@ -55,7 +55,7 @@ Creating Tests/HelloWorldTests/HelloWorldTests.swift\
 		- **response**: a variable of type closure 
 	- the function executes the closure using the name argument as a input
 ![img](./../img/helloworld-xcode1.png)
-## Add @jvm to compile the class to Android
+### Add @jvm to compile the class to Android
 Now we make the changes to be able to compile the class to Android
 
 5. Add **@jvm** to the classes you want to compile to Android. In our case here, we add **@jvm** to the GreetingService class
@@ -76,7 +76,7 @@ public class GreetingService {
 
 ![img](./../img/helloworld-xcode2.png)
 
-## Add Swift4J dependency in package.swift
+### Add Swift4J dependency in package.swift
 To fix the compile errors and compile the Swift project, you now need to add the necessary dependencies and modify the **package.swift** as described here.
 
 The steps describe the necessary changes. Either carefully make the changes yourself for learning and training purposes to the existing package.swift or alternative copy and replace the package.swift from the code snippet at the bottom.
@@ -167,15 +167,15 @@ let package = Package(
 )
 ```
 
-## Build should now be successful
+### Build should now be successful
 Your build should now be successful. In some cases, you also need to give permission to access the Swift4j library. You can do this using Xcode by clicking on the error message and approving the library.
 
 
 
 
-# Part 2 - Reuse and develop in Android Studio
+## Part 2 - Reuse and develop in Android Studio
 
-## dsadas
+### dsadas
 
 
 
