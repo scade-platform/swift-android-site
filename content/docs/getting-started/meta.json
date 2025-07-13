@@ -1,4 +1,4 @@
 {
     "title": "Getting started",
-    "pages": ["developmentprocess", "installation","supportedlibraries"]
+    "pages": ["developmentprocess", "installation","supportedlibraries","helloworld"]
 }
