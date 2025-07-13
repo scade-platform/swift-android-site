@@ -5,12 +5,13 @@ description: Tutorial to develop minimal Swift Android App
 
 # Part 1 - Develop in Xcode
 
-## Create Xcode project directory
-1. Create directory **HelloWorld** that contains your Swift library
-
-```bash filename="Terminal"
-./Projects % mkdir HelloWorld
-```
+	## Create Xcode project directory
+	1. Create directory **HelloWorld** that contains your Swift library
+	
+	```bash filename="Terminal"
+	./Projects % mkdir HelloWorld
+	```
+	
 ## Create Xcode project 
 2. Create an Xcode project that contains your shared code
 
