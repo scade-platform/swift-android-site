@@ -119,8 +119,7 @@ This is not included by default.
 
 	The entire updated package file now looks like below. Insteaf of making the changes yourself, you might copy the entire code into Xcode package.swift file.
 
-```swift
-
+```swift:package.swift
 // swift-tools-version: 5.10
 // The swift-tools-version declares the minimum version of Swift required to build this package.
  
@@ -168,6 +167,7 @@ let package = Package(
 
 ## Build should now be successful
 Your build should now be successful. In some cases, you also need to give permission to access the Swift4j library. You can do this using Xcode by clicking on the error message and approving the library.
+
 
 
 
