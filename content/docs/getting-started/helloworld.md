@@ -3,7 +3,7 @@ title: Hello World Tutorial
 description: Tutorial to develop a minimal Android App using Swift
 ---
 
-### Part 1 - Develop in Xcode
+## Part 1 - Develop in Xcode
 
 ### Create Xcode project directory
 1. Create directory **HelloWorld** that contains your Swift library
