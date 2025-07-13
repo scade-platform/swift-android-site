@@ -102,7 +102,7 @@ This is not included by default.
 
 	```swift
 	  dependencies: [
-	    .package(url: "https://github.com/scade-platform/swift4j.git", from: "1.0.0")
+	    .package(url: "https://github.com/scade-platform/swift4j.git", from: "1.2.1")
 	  ]
 	```
 	
@@ -117,7 +117,7 @@ This is not included by default.
 	)
 	```
 
-	The entire updated package file now looks like below. Insteaf of making the changes yourself, you might copy the entire code into Xcode package.swift file.
+The entire updated package.swift file show now look like below. Instead of making the changes yourself, you might copy the entire code into Xcode package.swift file.
 
 ```swift:package.swift
 // swift-tools-version: 5.10
