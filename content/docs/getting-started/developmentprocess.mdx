@@ -8,7 +8,7 @@ description: Describes general process on how to build Android native mobile app
 
 
 ## 1. Develop application logic code
-Application logic refers to the non-UI components of a mobile application—the parts that handle data processing, business rules, and state management. In MVVM architecture, this typically includes the Model and ViewModel layers. You develop all this code from your XCode IDE.
+Application logic refers to the non-UI components of a mobile application—the parts that handle data processing, business rules, and state management. In MVVM architecture, this typically includes the Model and ViewModel layers. You develop all this code from your Xcode IDE.
 
 ## 2. Annotate all Swift code with @JVM
 You use the @JVM annotation on your source code to define what code shall be compiled to Android. You can use the @JVM annotation on all kind of Swift objects like Class, Enum or Struct.
@@ -26,18 +26,15 @@ public class GreetingService {
   }
 }
 ```
-## 3. Compile the code using SCADE CLI
-You then use the SCADE CLI and the SCADE Swift for Android compiler to compile the Swift source code into Android native library, which is shipped as an AAR file.
-
-## 4. Reference the AAR file in Android Studio, create interop code
-In Android Studion, you then install the Swift gradle plugin
+## 3. Reference the Swift source in Android Studio and compile to Android
+Install the SCADE Swift Gradle plugin that manages the compilation process
 
 ```groovy
 plugins {
   id("io.scade.gradle.plugins.swiftpm") version "1.0.3"
 }
 ```
-and reference the Swift code (now a binary AAR file)
+and reference the Swift code (the XCode source projects)
 
 ```groovy
 swiftpm {
@@ -48,7 +45,7 @@ swiftpm {
 }
 ```
 
-## 5. Call the Swift code using Kotlin or Java
+## 4. Call the Swift code using Kotlin or Java
 The Swift code is now ready to be used on Android
 
 ```swift
