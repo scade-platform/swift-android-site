@@ -1,16 +1,16 @@
 ---
 title: Hello World Tutorial
-description: Tutorial to develop minimal Swift Android App
+description: Tutorial to develop a minimal Android App using Swift
 ---
 
 # Part 1 - Develop in Xcode
 
-	## Create Xcode project directory
-	1. Create directory **HelloWorld** that contains your Swift library
+## Create Xcode project directory
+1. Create directory **HelloWorld** that contains your Swift library
 	
-	```bash filename="Terminal"
-	./Projects % mkdir HelloWorld
-	```
+```bash filename="Terminal"
+./Projects % mkdir HelloWorld
+```
 	
 ## Create Xcode project 
 2. Create an Xcode project that contains your shared code
@@ -120,7 +120,8 @@ This is not included by default.
 
 The entire updated package.swift file show now look like below. Instead of making the changes yourself, you might copy the entire code into Xcode package.swift file.
 
-```swift:package.swift
+```swift
+
 // swift-tools-version: 5.10
 // The swift-tools-version declares the minimum version of Swift required to build this package.
  
