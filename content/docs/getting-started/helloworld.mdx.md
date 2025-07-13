@@ -57,7 +57,7 @@ Now we make the changes to be able to compile the class to Android
 
 5. Add @jvm to the classes you want to compile to Android. In our case here, we add @JVM to the GreetingService class
 
-6. The @Jjvm annotation is part of the Swif4J library. Please import Swift4J using **import Swift4j**
+6. The @jvm annotation is part of the Swif4J library. Please import Swift4J using **import Swift4j** (smaller case j)
 
 ```swift
 import Swift4j
@@ -126,7 +126,7 @@ import PackageDescription
 let package = Package(
         // Package.swift
  
-    name: "HalloWorld",
+    name: "HelloWorld",
     
     // Change 1 - add at least a target with version > .v13
     platforms: [
@@ -135,13 +135,13 @@ let package = Package(
     
     products: [
         .library(
-            name: "HalloWorld",
+            name: "HelloWorld",
             
             // Change 2 - add at least a target with version > .v13
             type: .dynamic,
             
             
-            targets: ["HalloWorld"])
+            targets: ["HelloWorld"])
     ],
  
     dependencies: [
@@ -151,7 +151,7 @@ let package = Package(
  
     targets: [
         .target(
-            name: "HalloWorld",
+            name: "HelloWorld",
             dependencies: [
              
                 // Change 4:  We add the Swift4j package as a dependency to our target
