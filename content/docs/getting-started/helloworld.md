@@ -1,10 +1,12 @@
 ---
-title: Hello World
-description: Minimal Swift Android App
+title: Hello World Tutorial
+description: Tutorial to develop minimal Swift Android App
 ---
+
 ##Goals
-- Android app that is minimal
+- Develop minimal Swift for Android app 
 - that uses Swift code written in Xcode
+- show in detail the important steps common to each project
 
 ## Create Xcode project directory
 1. Create directory **HelloWorld** that contains your Swift library
@@ -13,7 +15,7 @@ description: Minimal Swift Android App
 ./Projects % mkdir HelloWorld
 ```
 ## Create Xcode project 
-2. Create Xcode project that contains your shared code
+2. Create an Xcode project that contains your shared code
 
 ```bash filename="Terminal"
 ./Projects/HelloWorld  % swift package init --type library --name HelloWorld
@@ -21,7 +23,6 @@ description: Minimal Swift Android App
 As a result you see
 
 ```bash filename="Terminal"
-./Projects/HelloWorld  % swift package init --type library --name HelloWorld
 Creating library package: HelloWorld
 Creating Package.swift
 Creating .gitignore
@@ -33,9 +34,9 @@ Creating Tests/HelloWorldTests/HelloWorldTests.swift\
 ```
 ## Open project in Xcode and add first class
 
-3. Open project in XCode
+3. Open project in Xcode
 
-4. Create Swift class called **GreetingService.swift**
+4. Create Swift class called **GreetingService**
 
 	```swift
 	public class GreetingService {
@@ -50,12 +51,11 @@ Creating Tests/HelloWorldTests/HelloWorldTests.swift\
 		- **name**: a variale of type string
 		- **response**: a variable of type closure 
 	- the function executes the closure using the name argument as a input
-	
 ![img](./../img/helloworld-xcode1.png)
 ## Add @jvm to compile the class to Android
 Now we make the changes to be able to compile the class to Android
 
-5. Add @jvm to the classes you want to compile to Android. In our case here, we add @JVM to the GreetingService class
+5. Add @jvm to the classes you want to compile to Android. In our case here, we add @jvm to the GreetingService class
 
 6. The @jvm annotation is part of the Swif4J library. Please import Swift4J using **import Swift4j** (smaller case j)
 
@@ -78,7 +78,8 @@ To compile the Swift project, you now need to add the necessary dependencies and
 
 The steps describe the necessary changes. Either carefully make the changes yourself for learning and training purposes. Alternative copy and replace the package.swift from the code snippet below.
 
-8. Change 1: The default package.swift doesnt contain a platform minimal version. Please add
+8. Change 1: Add a **platform** with minimum version
+This is not included by default.
 
 	```swift
 	   platforms: [
@@ -87,7 +88,7 @@ The steps describe the necessary changes. Either carefully make the changes your
 	```
 This ensures a minimum version and avoids compiler errors. 
 
-9. Change 2: You need to set the library target type to dynamic:
+9. Change 2: You need to set the **library target type** to **dynamic**:
 
 	```swift
 	   type: .dynamic,
@@ -103,7 +104,7 @@ This ensures a minimum version and avoids compiler errors.
 	  ]
 	```
 	
-11. Change 4:  the Swift4j package as a dependency to our target
+11. Change 4:  add the Swift4j package as a dependency to our **target**
 
 	```swift
 	.target(
@@ -114,9 +115,9 @@ This ensures a minimum version and avoids compiler errors.
 	)
 ```
 
-The entire updated package file now looks like this. Insteaf of making the changes yourself, you might copy the entire code into Xcode package.swift file.
+The entire updated package file now looks like below. Insteaf of making the changes yourself, you might copy the entire code into Xcode package.swift file.
 
-```swift, filename: package.swift
+```swift
 // swift-tools-version: 5.10
 // The swift-tools-version declares the minimum version of Swift required to build this package.
  
@@ -161,6 +162,15 @@ let package = Package(
     ]
 )
 ```
+## Build should now be successful
+Your build should now be successful. In same cases, you also need to give permission to access the Swift4j library. You can do this using Xcode by clicking on the error message and approving the library.
+
+## Build should now be successful
+
+
+
+
+
 
 
 
