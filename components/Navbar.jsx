@@ -14,23 +14,25 @@ export default function Navbar() {
   const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
   return (
-    <nav className="navbar content">
-      <Link href='/' className="navbar-brand">
-        <img src={`${basePath}/logo-scade.svg`} className="img-fluid" alt="logo"/>
-      </Link>
-      <div className="navbar-links ml-[auto] px-6">
-        {navigation.map((item) => (
-          <Link
-            key={item.name}
-            href={item.href}
-            target={item.target}
-            className={`nav-link md:px-8 ${
-              pathname === item.href ? "active" : ""
-            }`}
-          >
-            {item.name}
-          </Link>
-        ))}
+    <nav className="navbar">
+      <div className="content navbar-items">
+        <Link href='/' className="navbar-brand">
+          <img src={`${basePath}/logo-scade.svg`} className="img-fluid" alt="logo"/>
+        </Link>
+        <div className="navbar-links ml-[auto] px-6">
+          {navigation.map((item) => (
+            <Link
+              key={item.name}
+              href={item.href}
+              target={item.target}
+              className={`nav-link md:px-8 ${
+                pathname === item.href ? "active" : ""
+              }`}
+            >
+              {item.name}
+            </Link>
+          ))}
+        </div>
       </div>
     </nav>
   );

@@ -1,14 +1,17 @@
 /* Ensure the navbar container aligns everything properly */
 .navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 31;
+  background-color: var(--background);
+}
+.navbar-items{
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0 1rem;
   height: 4rem;
-  top: 0;
-  width: 100%;
-  z-index: 31;
-  background-color: var(--background);
 }
 
 /* Align the navigation links */

@@ -1,0 +1,10 @@
+#nd-docs-layout > aside{
+  --fd-sidebar-height: calc(100dvh - 64px - var(--fd-banner-height) - var(--fd-nav-height))!important;
+}
+#nd-page{
+  height: calc(100vh - 65px);
+  overflow-y: auto;
+}
+#nd-tocnav{
+  top: 0
+}
