@@ -29,7 +29,7 @@ Arrays.mapReversed(arr) {
             <path d="M67.5246 36H52V28.6602H59.96131V5.94175H52V0H67.5246V36Z"/>
           </svg>
         </div>
-        <h1 className="color-ios mt-2 font-bold text-xl mb-4">
+        <h1 className="color-ios mt-2 font-bold text-5xl mb-4">
           Swift For Android
         </h1>
         <p className="mb-8">
