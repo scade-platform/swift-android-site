@@ -10,6 +10,7 @@ description: Tutorial to develop minimal Swift Android App
 
 
 
+
 # Develop in Xcode
 
 ## Create Xcode project directory
@@ -41,7 +42,7 @@ Creating Tests/
 Creating Tests/HelloWorldTests/
 Creating Tests/HelloWorldTests/HelloWorldTests.swift\
 ```
-## Open project in Xcode and add first class
+## Open project in Xcode and add first Swift class
 
 3. Open project in Xcode
 
@@ -126,7 +127,9 @@ This ensures a minimum version and avoids compiler errors.
 
 The entire updated package file now looks like below. Insteaf of making the changes yourself, you might copy the entire code into Xcode package.swift file.
 
+
 ```swift
+
 // swift-tools-version: 5.10
 // The swift-tools-version declares the minimum version of Swift required to build this package.
  
