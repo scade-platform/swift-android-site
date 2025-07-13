@@ -1,28 +1,40 @@
 /* Ensure the navbar container aligns everything properly */
 .navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 31;
+  background-color: var(--background);
+}
+.navbar-items{
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0 1rem;
   height: 4rem;
-  top: 0;
-  width: 100%;
-  z-index: 31;
-  background-color: black;
 }
 
 /* Align the navigation links */
 .navbar-links {
   display: flex;
-  gap: 1.5rem;
+  align-items: center;
+  align-content: center;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  gap: 3rem;
+}
+@media (max-width: 992px) {
+  .navbar-links {
+    gap: 1rem;
+  }
 }
 
 .nav-link {
   text-decoration: none;
   font-size: 1rem;
   font-weight: 500;
-  color: black; /* Default color for light mode */
-  position: relative; /* Required for the underline */
+  color: var(--muted);
+  position: relative;
 }
 
 .nav-link.active {
@@ -30,28 +42,11 @@
 }
 
 .nav-link.active::after {
-  content: ""; /* Add an underline */
+  content: "";
   position: absolute;
-  bottom: -2px; /* Position the underline slightly below the text */
+  bottom: -2px;
   left: 0;
-  width: 100%; /* Make the underline span the full width of the link */
-  height: 2px; /* Thickness of the underline */
-  background-color: black; /* Color of the underline */
-}
-
-/* Dark mode styles */
-@media (prefers-color-scheme: dark) {
-  .nav-link {
-    color: white; /* Change text color to white in dark mode */
-  }
-
-  .nav-link.active::after {
-    background-color: white; /* Change underline color to white in dark mode */
-  }
-}
-
-/* Ensure the GitHub button stays on the right */
-.navbar-github {
-  display: flex;
-  align-items: center;
+  width: 100%;
+  height: 2px;
+  background-color: var(--background);
 }

@@ -4,22 +4,77 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #0a0a0a;
+  --muted: #7F7F7F;
+  --accent: #1B6081;
+  --ios: #FD9226;
+  --android: #51A637;
+  --breakpoint-xs: 480px;
+  --breakpoint-sm: 576px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 992px;
+  --breakpoint-xl: 1200px;
+  --border-radius: 30px;
+  --icon-color: var(--foreground);
 }
-
-
-
 
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
     --foreground: #ffffff;
+    --accent: #56bef3;
+    --muted: #d3d3d3;
+    --ios: #FD9226;
+    --android: #51A637;
   }
+  .themed-icon {
+    filter: invert(100%);
+  }
+}
+
+.border-ios{
+  border: 2px solid var(--ios);
+  border-radius: var(--border-radius);
+}
+.color-ios{
+  color: var(--ios);
+}
+.border-android{
+  border: 2px solid var(--android);
+  border-radius: var(--border-radius);
+}
+.color-android {
+  color: var(--android);
+}
+.color-foreground {
+  color: var(--foreground);
+}
+.color-background {
+  color: var(--background);
+}
+.bg-accent{
+  background-color: var(--accent);
 }
 
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+}
+
+.themed-icon {
+  filter: invert(0%);
+}
+
+.content {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 900px;
+}
+
+.section {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 760px;
+  padding: 0 30px;
 }
 
