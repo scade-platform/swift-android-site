@@ -3,7 +3,7 @@ title: Hello World Tutorial
 description: Tutorial to develop minimal Swift Android App
 ---
 
-##Goals
+## Goals
 - Develop minimal Swift for Android app 
 - that uses Swift code written in Xcode
 - show in detail the important steps common to each project
@@ -116,6 +116,7 @@ This ensures a minimum version and avoids compiler errors.
 ```
 
 The entire updated package file now looks like below. Insteaf of making the changes yourself, you might copy the entire code into Xcode package.swift file.
+
 
 ```swift
 // swift-tools-version: 5.10
