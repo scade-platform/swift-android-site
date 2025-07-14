@@ -3,7 +3,7 @@ title: Hello World Tutorial
 description: Tutorial to develop a minimal Android App using Swift
 ---
 
-## Part 1 - Develop in Xcode
+## Develop in Xcode
 
 ### Create Xcode project directory
 1. Create directory **HelloWorld** that contains your Swift library
@@ -173,7 +173,7 @@ Your build should now be successful. In some cases, you also need to give permis
 
 
 
-## Part 2 - Reuse and develop in Android Studio
+## Reuse and develop in Android Studio
 
 ### dsadas
 
