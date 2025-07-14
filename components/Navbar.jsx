@@ -6,7 +6,7 @@ import "./Navbar.css";
 const navigation = [
   {name: "Get started", href: "/docs/getting-started/installation"},
   {name: "Community", href: "/docs/examples/weather-service"},
-  {name: "Blog", href: "https://x.com/scade_platform", target: "_blank"},
+  {name: "Blog", href: "/blog"},
 ];
 
 export default function Navbar() {
