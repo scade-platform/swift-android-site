@@ -172,7 +172,7 @@ Your build should now be successful. In some cases, you also need to give permis
 
 
 
-## Reuse and develop in Android Studio
+## Reuse Swift code and develop in Android Studio
 
 <Alert variant="info">
 
@@ -181,16 +181,18 @@ Please ensure that the Android NDK is installed. See also Installation > Android
 </Alert>
 
 ### Create new Android project
-Create a new Android project
-
 1. Choose **File > New Project**
 2. Choose **Empty Activity**
 3. Call the project **HelloWorld**
-	- choose **Kotlin DSL** as build configuration language
+	- Choose **Kotlin DSL** as build configuration language
+![img](./../img/helloworld_android_newprojectsettings2.png)
+4. Open the **build.gradle.kts** file in the <span style="font-weight: bold;;color:red">app directory</span> directory
+ - There is a 2nd build.gradle.kts outside of the app directory. Dont use that one
 
+### Setup the gradle config file in the app directory
+5. Add the the SCADE plugin under plugins
 
-
-
-
-
-
+	```gradle
+	id("io.scade.gradle.plugins.android.swiftpm") version "1.1.1"
+	```
+6. 
