@@ -172,11 +172,21 @@ Your build should now be successful. In some cases, you also need to give permis
 
 
 
-
 ## Reuse and develop in Android Studio
 
-### dsadas
+<Alert variant="info">
 
+Please ensure that the Android NDK is installed. See also Installation > Android NDK
+
+</Alert>
+
+### Create new Android project
+Create a new Android project
+
+1. Choose **File > New Project**
+2. Choose **Empty Activity**
+3. Call the project **HelloWorld**
+	- choose **Kotlin DSL** as build configuration language
 
 
 
