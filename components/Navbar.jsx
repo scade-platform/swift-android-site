@@ -4,8 +4,8 @@ import {usePathname} from "next/navigation";
 import "./Navbar.css";
 
 const navigation = [
-  {name: "Get started", href: "/docs/getting-started/installation"},
-  {name: "Community", href: "/docs/examples/weather-service"},
+  {name: "Get started", href: "/docs/getting-started/developmentprocess"},
+  {name: "Community", href: "https://discord.gg/ECxbtgx2ct", target: "_blank"},
   {name: "Blog", href: "/blog"},
 ];
 
