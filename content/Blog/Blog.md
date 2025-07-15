@@ -14,6 +14,6 @@ July 14 , 2025
 We released our latest version of SCADE Applogic!
 
 1. Full support for the latest Swift 6.1 – bringing all the newest language features seamlessly into your projects.
-2. Release of Swift4j version 6.1.1 – making it easier than ever to combine Swift with Java.
+2. Release of swift4j version 6.1.1 – making it easier than ever to combine Swift with Java.
 3. Improved stability – for smoother and more reliable cross-platform development.
 4. New plugin version 1.1.1 – updated for better integration and an even simpler workflow.
