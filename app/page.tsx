@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import CodeBlock from "@/components/CodeBlock";
+import Footer from "@/components/Footer";
 
 export default function Home() {
   const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
@@ -176,6 +177,7 @@ Arrays.mapReversed(arr) {
           For more answers, see our frequently asked question & answer section <Link href="/docs" className="underline hover:no-underline underline-offset-4">here</Link>
         </p>
       </section>
+      <div className="flex items-center m-[auto]"><Footer/></div>
     </div>
 
   );

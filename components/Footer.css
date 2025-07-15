@@ -1,6 +1,7 @@
 .footer {
   padding: 2rem;
-
+  display: block;
+  width: 100%;
 }
 
 .footer-nav {

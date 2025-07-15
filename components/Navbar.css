@@ -5,6 +5,7 @@
   width: 100%;
   z-index: 31;
   background-color: var(--background);
+  box-shadow: 0 0 10px 0 var(--foreground-with-opacity);
 }
 .navbar-items{
   display: flex;

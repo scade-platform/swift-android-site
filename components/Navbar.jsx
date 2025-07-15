@@ -15,7 +15,7 @@ export default function Navbar() {
 
   return (
     <nav className="navbar">
-      <div className="content navbar-items">
+      <div className="navbar-items">
         <Link href='/' className="navbar-brand">
           <img src={`${basePath}/logo-scade.svg`} className="img-fluid" alt="logo"/>
         </Link>

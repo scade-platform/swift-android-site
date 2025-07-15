@@ -16,6 +16,7 @@
   --breakpoint-xl: 1200px;
   --border-radius: 30px;
   --icon-color: var(--foreground);
+  --foreground-with-opacity: rgba(0, 0, 0, 0.1);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -26,6 +27,7 @@
     --muted: #d3d3d3;
     --ios: #FD9226;
     --android: #51A637;
+    --foreground-with-opacity: rgba(255, 255, 255, 0.1);
   }
   .themed-icon {
     filter: invert(100%);
