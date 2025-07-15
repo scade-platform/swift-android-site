@@ -62,16 +62,16 @@ Now we make the changes to be able to compile the class to Android
 
 6. The **@jvm** annotation is part of the Swift4J library. Please import Swift4J using **import Swift4j** (pay attention to the smaller case j)
 
-```swift
-import Swift4j
-
-@jvm
-public class GreetingService {
-  func greet(name: String, _ response: (String) -> Void) {
-    response("Swift greets \(name)")
-  }
-}
-```
+	```swift
+	import Swift4j
+	
+	@jvm
+	public class GreetingService {
+	  func greet(name: String, _ response: (String) -> Void) {
+	    response("Swift greets \(name)")
+	  }
+	}
+	```
 7. As you can see, Xcode is complaining about the missing module Swift4J ("No such module Swif4J")
 
 ![img](./../img/helloworld-xcode2.png)
@@ -207,6 +207,7 @@ Please ensure that the Android NDK is installed. See also Installation > Android
 	    scdAutoUpdate = true
 	}	
 ```
+
  - the **path** needs to point to the directory of the Swift project. See step 1
  - set the **product** to "HelloWorld"
 
@@ -215,4 +216,4 @@ Please ensure that the Android NDK is installed. See also Installation > Android
 ### Build the project
 19. Buld the project now. When you run the build for the first time, it downloads all dependencies and compiles the source code. This could **take 2-3 minutes**. Subsequent build will be much faster
 
-20.
+20. 
