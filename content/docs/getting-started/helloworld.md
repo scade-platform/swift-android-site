@@ -206,7 +206,7 @@ Please ensure that the Android NDK is installed. See also Installation > Android
 	    javaVersion = 8
 	    scdAutoUpdate = true
 	}	
-```
+	```
 
  - the **path** needs to point to the directory of the Swift project. See step 1
  - set the **product** to "HelloWorld"
@@ -214,6 +214,6 @@ Please ensure that the Android NDK is installed. See also Installation > Android
 ![img](./../img/helloworld_android_newprojectgradleconfig1a.png)
 
 ### Build the project
-19. Buld the project now. When you run the build for the first time, it downloads all dependencies and compiles the source code. This could **take 2-3 minutes**. Subsequent build will be much faster
+19. Buld the project. When you run the build for the first time, it downloads all dependencies and compiles the source code. This could **take 2-3 minutes**. Subsequent build will be much faster
 
 20. 
