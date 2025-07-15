@@ -30,6 +30,9 @@
   .themed-icon {
     filter: invert(100%);
   }
+  .prose img{
+    background: white;
+  }
 }
 
 .border-ios{
@@ -77,4 +80,3 @@ body {
   max-width: 760px;
   padding: 0 30px;
 }
-
