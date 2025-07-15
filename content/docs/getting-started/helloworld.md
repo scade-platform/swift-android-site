@@ -6,7 +6,7 @@ description: Tutorial to develop a minimal Android App using Swift
 ## Develop in Xcode
 
 ### Create Xcode project directory
-1. Create directory **HelloWorld** that contains your Swift library
+1. Create directory **HelloWorld** that contains your Swift library. Lets refer to this as project directory.
 	
 ```bash filename="Terminal"
 ./Projects % mkdir HelloWorld
@@ -181,18 +181,38 @@ Please ensure that the Android NDK is installed. See also Installation > Android
 </Alert>
 
 ### Create new Android project
-1. Choose **File > New Project**
-2. Choose **Empty Activity**
-3. Call the project **HelloWorld**
+13. Choose **File > New Project**
+14. Choose **Empty Activity**
+15. Call the project **HelloWorld**
 	- Choose **Kotlin DSL** as build configuration language
+
 ![img](./../img/helloworld_android_newprojectsettings2.png)
-4. Open the **build.gradle.kts** file in the <span style="font-weight: bold;;color:red">app directory</span> directory
- - There is a 2nd build.gradle.kts outside of the app directory. Dont use that one
 
 ### Setup the gradle config file in the app directory
-5. Add the the SCADE plugin under plugins
+16. Open the **build.gradle.kts** file in the <span style="font-weight: bold;;color:red">app directory</span> directory
+ - There is a 2nd build.gradle.kts outside of the app directory. Dont use that one
+
+17. Add the SCADE Swift Product Manager **plugin** under plugins
 
 	```gradle
 	id("io.scade.gradle.plugins.android.swiftpm") version "1.1.1"
 	```
-6. 
+18. Add the SCADE Swift Product Manager **configuration** at the bottom of the file
+
+	```gradle
+	swiftpm {
+	    path = file("<fullpath>/Projects/HelloWorld")
+	    product = "HelloWorld"
+	    javaVersion = 8
+	    scdAutoUpdate = true
+	}	
+```
+ - the **path** needs to point to the directory of the Swift project. See step 1
+ - set the **product** to "HelloWorld"
+
+![img](./../img/helloworld_android_newprojectgradleconfig1a.png)
+
+### Build the project
+19. Buld the project now. When you run the build for the first time, it downloads all dependencies and compiles the source code. This could **take 2-3 minutes**. Subsequent build will be much faster
+
+20.
