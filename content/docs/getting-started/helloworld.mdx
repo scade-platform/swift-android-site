@@ -17,33 +17,33 @@ The HelloWorld example shows how to develop a simple Swift class in Xcode, compi
 ### Create Xcode project directory
 1. Create directory **HelloWorld** that contains your Swift library. Lets refer to this as project directory.
 
-```bash filename="Terminal"
-./Projects % mkdir HelloWorld
-```
+	```bash filename="Terminal"
+	./Projects % mkdir HelloWorld
+	```
 
 ### Create Xcode project
 2. Create an Xcode project that contains your shared code
 
-```swift
-swift package init --type library --name HelloWorld
-```
+	```swift
+	swift package init --type library --name HelloWorld
+	```
 Make sure to use it from  **inside** your project directory
 
-```bash filename="Terminal"
-./Projects/HelloWorld  % swift package init --type library --name HelloWorld
-```
+	```bash filename="Terminal"
+	./Projects/HelloWorld  % swift package init --type library --name HelloWorld
+	```
 As a result you see
 
-```bash filename="Terminal"
-Creating library package: HelloWorld
-Creating Package.swift
-Creating .gitignore
-Creating Sources/
-Creating Sources/HelloWorld/HelloWorld.swift
-Creating Tests/
-Creating Tests/HelloWorldTests/
-Creating Tests/HelloWorldTests/HelloWorldTests.swift\
-```
+	```bash filename="Terminal"
+	Creating library package: HelloWorld
+	Creating Package.swift
+	Creating .gitignore
+	Creating Sources/
+	Creating Sources/HelloWorld/HelloWorld.swift
+	Creating Tests/
+	Creating Tests/HelloWorldTests/
+	Creating Tests/HelloWorldTests/HelloWorldTests.swift\
+	```
 ### Open project in Xcode and add first Swift class
 
 3. Open project in Xcode
