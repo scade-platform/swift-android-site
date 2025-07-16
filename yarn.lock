@@ -2167,9 +2167,9 @@ esast-util-from-js@^2.0.0:
     esast-util-from-estree "^2.0.0"
     vfile-message "^4.0.0"
 
-esbuild@^0.25.5:
+esbuild@^0.25.6:
   version "0.25.6"
-  resolved "https://registry.npmjs.org/esbuild/-/esbuild-0.25.6.tgz"
+  resolved "https://registry.yarnpkg.com/esbuild/-/esbuild-0.25.6.tgz#9b82a3db2fa131aec069ab040fd57ed0a880cdcd"
   integrity sha512-GVuzuUwtdsghE3ocJ9Bs8PNoF13HNQ5TXbEi2AhvVb8xU1Iwt9Fos9FEamfoee+u/TOsn7GUWc04lz46n2bbTg==
   optionalDependencies:
     "@esbuild/aix-ppc64" "0.25.6"
@@ -2660,15 +2660,15 @@ fumadocs-core@14.7.7:
     shiki "^2.0.3"
     unist-util-visit "^5.0.0"
 
-fumadocs-mdx@11.6.10:
-  version "11.6.10"
-  resolved "https://registry.npmjs.org/fumadocs-mdx/-/fumadocs-mdx-11.6.10.tgz"
-  integrity sha512-W13mGPKDviKHq1FdxJqbBmA8vQ0niEISUUREJU8u3q1g5lQgnZ9whZjTnvijnqiGNbBsjb8CmjU20OlmwG6nhA==
+fumadocs-mdx@11.6.11:
+  version "11.6.11"
+  resolved "https://registry.yarnpkg.com/fumadocs-mdx/-/fumadocs-mdx-11.6.11.tgz#228727704ad280f3dcfe54ae34c916ca0a9a704a"
+  integrity sha512-8KPOMU53ujQtNWvmmBpyGb9BRdFXZKS0m0O6udSlXCoLU/VZlQSJE0ntxX1e5JCDVsxPR63jleCVq1c/WXmEVw==
   dependencies:
     "@mdx-js/mdx" "^3.1.0"
     "@standard-schema/spec" "^1.0.0"
     chokidar "^4.0.3"
-    esbuild "^0.25.5"
+    esbuild "^0.25.6"
     estree-util-value-to-estree "^3.4.0"
     js-yaml "^4.1.0"
     lru-cache "^11.1.0"
@@ -2676,7 +2676,7 @@ fumadocs-mdx@11.6.10:
     tinyexec "^1.0.1"
     tinyglobby "^0.2.14"
     unist-util-visit "^5.0.0"
-    zod "^3.25.67"
+    zod "^4.0.5"
 
 fumadocs-ui@14.7.7:
   version "14.7.7"
@@ -5686,10 +5686,10 @@ yocto-queue@^0.1.0:
   resolved "https://registry.npmjs.org/yocto-queue/-/yocto-queue-0.1.0.tgz"
   integrity sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==
 
-zod@^3.25.67:
-  version "3.25.76"
-  resolved "https://registry.npmjs.org/zod/-/zod-3.25.76.tgz"
-  integrity sha512-gzUt/qt81nXsFGKIFcC3YnfEAx5NkunCfnDlvuBSSFS02bcXu4Lmea0AFIUwbLWxWPx3d9p8S5QoaujKcNQxcQ==
+zod@^4.0.5:
+  version "4.0.5"
+  resolved "https://registry.yarnpkg.com/zod/-/zod-4.0.5.tgz#b47825f318e7884d94bcd6f5385a1de805ccfb1c"
+  integrity sha512-/5UuuRPStvHXu7RS+gmvRf4NXrNxpSllGwDnCBcJZtQsKrviYXm54yDGV2KYNLT5kq0lHGcl7lqWJLgSaG+tgA==
 
 zwitch@^2.0.0, zwitch@^2.0.4:
   version "2.0.4"
