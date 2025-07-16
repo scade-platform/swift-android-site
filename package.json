@@ -20,7 +20,7 @@
     "@orama/stopwords": "3.1.10",
     "fs": "0.0.1-security",
     "fumadocs-core": "14.7.7",
-    "fumadocs-mdx": "11.6.10",
+    "fumadocs-mdx": "11.6.11",
     "fumadocs-ui": "14.7.7",
     "gray-matter": "4.0.3",
     "lenis": "1.3.4",

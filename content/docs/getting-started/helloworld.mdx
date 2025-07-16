@@ -16,12 +16,12 @@ The HelloWorld example shows how to develop a simple Swift class in Xcode, compi
 
 ### Create Xcode project directory
 1. Create directory **HelloWorld** that contains your Swift library. Lets refer to this as project directory.
-	
+
 ```bash filename="Terminal"
 ./Projects % mkdir HelloWorld
 ```
-	
-### Create Xcode project 
+
+### Create Xcode project
 2. Create an Xcode project that contains your shared code
 
 ```swift
@@ -52,16 +52,16 @@ Creating Tests/HelloWorldTests/HelloWorldTests.swift\
 
 	```swift
 	public class GreetingService {
-	  func greet(name: String, _ response: (String) -> Void) {        
+	  func greet(name: String, _ response: (String) -> Void) {
 	    response("Swift greets \(name)")
 	  }
 	}
 	```
-	
+
 	- This is a very simple class with a function greet
 	- Function greet has two argument
 		- **name**: a variale of type string
-		- **response**: a variable of type closure 
+		- **response**: a variable of type closure
 	- the function executes the closure using the name argument as a input
 ![img](./../img/helloworld-xcode1.png)
 ### Add @jvm to compile the class to Android
@@ -73,7 +73,7 @@ Now we make the changes to be able to compile the class to Android
 
 	```swift
 	import Swift4j
-	
+
 	@jvm
 	public class GreetingService {
 	  func greet(name: String, _ response: (String) -> Void) {
@@ -98,7 +98,7 @@ This is not included by default.
 	        .macOS(.v13)
 	       ],
 	```
-	This ensures a minimum version and avoids compiler errors. 
+	This ensures a minimum version and avoids compiler errors.
 
 9. Change 2: You need to set the **library target type** to **dynamic**:
 
@@ -115,14 +115,14 @@ This is not included by default.
 	    .package(url: "https://github.com/scade-platform/swift4j.git", from: "1.2.1")
 	  ]
 	```
-	
+
 11. Change 4:  add the Swift4j package as a dependency to our **target**
 
 	```swift
 	.target(
 	  ...
 	  dependencies: [
-	    .product(name: "Swift4j", package: "swift4j")              
+	    .product(name: "Swift4j", package: "swift4j")
 	  ]
 	)
 	```
@@ -133,41 +133,41 @@ The entire updated package.swift file show now look like below. Instead of makin
 
 // swift-tools-version: 5.10
 // The swift-tools-version declares the minimum version of Swift required to build this package.
- 
+
 import Foundation
 import PackageDescription
- 
+
 let package = Package(
         // Package.swift
- 
+
     name: "HelloWorld",
-    
+
     // Change 1 - add at least a target with version > .v13
     platforms: [
         .macOS(.v13)
        ],
-    
+
     products: [
         .library(
             name: "HelloWorld",
-            
+
             // Change 2 - add at least a target with version > .v13
             type: .dynamic,
-            
-            
+
+
             targets: ["HelloWorld"])
     ],
- 
+
     dependencies: [
       //  Change 3  - we use the Swift4j package to mark the Swift code that should be available on Android as Java API
         .package(url: "https://github.com/scade-platform/swift4j.git", from: "1.2.1")
     ],
- 
+
     targets: [
         .target(
             name: "HelloWorld",
             dependencies: [
-             
+
                 // Change 4:  We add the Swift4j package as a dependency to our target
               .product(name: "Swift4j", package: "swift4j")
             ]
@@ -183,11 +183,9 @@ Your build should now be successful. In some cases, you also need to give permis
 
 ## Reuse Swift code and develop in Android Studio
 
-<Alert variant="info">
-
+<Callout type="warn">
 Please ensure that the Android NDK is installed. See also Installation > Android NDK
-
-</Alert>
+</Callout>
 
 ### Create new Android project
 13. Choose **File > New Project**
@@ -197,7 +195,7 @@ Please ensure that the Android NDK is installed. See also Installation > Android
 ![img](./../img/helloworld_android_newprojectsettings2.png)
 
 ### Setup the gradle config file in the app directory
-16. Open the **build.gradle.kts** file in the <span style="font-weight: bold;;color:red">app directory</span> directory
+16. Open the **build.gradle.kts** file in the <span style={{ fontWeight: 'bold', color:'red' }} >app directory</span> directory
  - There is a 2nd build.gradle.kts outside of the app directory. Dont use that one
 
 17. Add the SCADE Swift Product Manager **plugin** under plugins
@@ -213,7 +211,7 @@ Please ensure that the Android NDK is installed. See also Installation > Android
 	    product = "HelloWorld"
 	    javaVersion = 8
 	    scdAutoUpdate = true
-	}	
+	}
 	```
 
 	 - the **path** needs to point to the directory of the Swift project. See step 1
@@ -224,4 +222,4 @@ Please ensure that the Android NDK is installed. See also Installation > Android
 ### Build the project
 19. Buld the project. When you run the build for the first time, it downloads all dependencies and compiles the source code. This could **take 2-3 minutes**. Subsequent build will be much faster
 
-20. 
+20.
