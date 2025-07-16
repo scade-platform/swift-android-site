@@ -1,8 +1,6 @@
----
-title: Weather Service
-description: Retrieving current temperature in a city
----
 # Weather Service
+
+**Retrieve the current temperature for any city or location**
 
 This example demonstrates how to build a weather service application that retrieves current temperature information for any city or geographic location. The app showcases real-world usage of networking and data parsing capabilities by integrating with external APIs to fetch and process weather data.
 
@@ -11,13 +9,16 @@ The Weather Service example highlights the most commonly used features from the 
 - **Networking**: Making asynchronous HTTP requests using `URL` to communicate with external APIs
 - **JSON Parsing**: Processing JSON responses using `JSONSerialization` to extract meaningful data from API responses
 
-The application uses two different APIs: Open-Meteo for weather data and OpenStreetMap Nominatim for geocoding city names to coordinates, demonstrating how to chain multiple API calls and handle different response formats.
+The application uses two different APIs: 
+- **Open-Meteo** - retrieves weather data 
+- **OpenStreetMap Nominatim** - geocodes city names into coordinates
+The app shows how to chain multiple API calls and handle different response formats.
 
 To build this weather service application, we split our task into two distinct parts described in the following sections: first, we develop the core app logic using Swift to handle data fetching and processing, and then we create the user interface targeting this logic in Android Studio.
 
 The full source code together with an Android Studio project for this example is available on [GitHub](https://github.com/scade-platform/swift4j-examples)
 
-## App logic
+## App logic in Swift
 
 We start by implementing the core logic of our weather service application in Swift. First, we generate a new Swift Package using the standard ```swift```command line tool that is available in the Swift toolchain:
 
@@ -67,6 +68,8 @@ let package = Package(
 ```
 
 In this configuration, we changed the type of the library product to `.dynamic`, which is necessary for the library to be usable on Android. We also added a dependency on the `Swift4j` package, which provides the necessary functionality to expose Swift code as Java API.
+
+### WeatherService class
 
 Next, we can start implementing the core logic of our weather service application. We will create a class named `WeatherService` in the ```Sources/WeatherService/WeatherService.swift``` file that will handle fetching weather data from the Open-Meteo API and geocoding city names using the OpenStreetMap Nominatim API. The shorted version of the code (omitting exception logging) is presented below:
 
@@ -127,15 +130,19 @@ class WeatherService {
 }
 ```
 
-In this code, we define a class `WeatherService` with two asynchronous methods: one for fetching the current temperature at given coordinates (`currentTemperature(latitude:longitude:response:)`) and another for geocoding a city name to coordinates and then fetching the temperature for those coordinates (`currentTemperature(city:response:)`) by calling the first function. The implementation of both functions is based on the standard functionality provided by the `Foundation` framework, such as `URL` for networking and `JSONSerialization` for parsing JSON data. Both functions use Swift's `async/await` syntax to handle asynchronous operations, and the `response` closure is called with the temperature and its units when the data is successfully fetched and parsed.
+In this code, we define a class `WeatherService` with two asynchronous methods: 
+- **currentTemperature(latitude:longitude:response:)** - fetches temperature from Open-Meteo at given coordinates
+- **currentTemperature(city:response:)** - geocodes a city name to coordinates and then fetching the temperature for those coordinates by calling the first function.
+
+The implementation of both functions is based on the standard functionality provided by the `Foundation` framework, such as `URL` for networking and `JSONSerialization` for parsing JSON data. Both functions use Swift's `async/await` syntax to handle asynchronous operations, and the `response` closure is called with the temperature and its units when the data is successfully fetched and parsed.
 
 The code presented above can be used on any Apple platform without any restriction. The whole magic of making it available on Android is done by the `Swift4j` package, which allows us to mark the Swift class and its methods as Java API using the `@jvm` attribute. This way, the `WeatherService` class and its methods can be called from Java code in an Android application without any additional boilerplate code. Please, note that we make the first function private, so it is not visible in the Java API, while the second function is public and can be called from Java code.
 
-The full source code of the package is available on [GitHub](https://github.com/scade-platform/swift4j-examples/Packages/WeatherService).
+The full source code of the package is available on [GitHub](https://github.com/scade-platform/swift4j-examples/tree/main/Packages/WeatherService).
 
 Now is the time to move to the Android part of the application.
 
-## User interface
+## User interface on Android
 
 We create a new Android project in Android Studio. For this, we can use the *New Project* wizard and select the *Empty Activity* template as well as the *Kotlin DSL* as the *Build configuration language*  that will create a new Android project with the necessary files and configurations.
 
@@ -172,6 +179,8 @@ First, we add the *Swift Packages for Gradle* plugin to our project, that will t
 Next, we add a configuration block for the plugin, where we specify the path to the Swift Package we want to use, the name of the product we want to use from this package and the Java version we want to be compatible with (the default is 11, we use 8 because we want to support older versions of the Android API ). The last parameter specify whether we want to automatically update the *Swift Toolchain for Android*.
 
 After this, we can just build the project, if you don't have the *Swift Toolchain for Android* installed, the plugin will download it automatically and install it. If you already have the toolchain installed, the plugin will check the installed version and update it if a new version is available. Also, the plugin will generate the Java API for the `WeatherService` class so that we can immedately access it from our Kotlin code.
+
+### MainActivity.kt
 
 Now, we can open the `MainActivity.kt` file and implement the user interface logic. For the sake of simplicity we just add a label that will show the current temperature for a given city. First, we add an import statement for the `WeatherService` class exported from the Swift package previously at the top of the file:
 
