@@ -1,6 +1,7 @@
-# Weather Service
-
-**Retrieve the current temperature for any city or location**
+---
+title: Weather Service
+description: Retrieve the current temperature for any city or location
+---
 
 This example demonstrates how to build a weather service application that retrieves current temperature information for any city or geographic location. The app showcases real-world usage of networking and data parsing capabilities by integrating with external APIs to fetch and process weather data.
 
@@ -9,8 +10,8 @@ The Weather Service example highlights the most commonly used features from the 
 - **Networking**: Making asynchronous HTTP requests using `URL` to communicate with external APIs
 - **JSON Parsing**: Processing JSON responses using `JSONSerialization` to extract meaningful data from API responses
 
-The application uses two different APIs: 
-- **Open-Meteo** - retrieves weather data 
+The application uses two different APIs:
+- **Open-Meteo** - retrieves weather data
 - **OpenStreetMap Nominatim** - geocodes city names into coordinates
 The app shows how to chain multiple API calls and handle different response formats.
 
@@ -41,8 +42,8 @@ let package = Package(
 		// Package.swift
 
     name: "WeatherService",
-    
-    products: [				
+
+    products: [
         .library(
             name: "WeatherService",
             // We use dynamic library to be able to use it on Android
@@ -52,7 +53,7 @@ let package = Package(
 
     dependencies: [
 			// We use the Swift4j package to mark the Swift code that should be available on Android as Java API
-      .package(url: "https://github.com/scade-platform/swift4j.git", from: "1.2.1")      
+      .package(url: "https://github.com/scade-platform/swift4j.git", from: "1.2.1")
     ],
 
     targets: [
@@ -130,7 +131,7 @@ class WeatherService {
 }
 ```
 
-In this code, we define a class `WeatherService` with two asynchronous methods: 
+In this code, we define a class `WeatherService` with two asynchronous methods:
 - **currentTemperature(latitude:longitude:response:)** - fetches temperature from Open-Meteo at given coordinates
 - **currentTemperature(city:response:)** - geocodes a city name to coordinates and then fetching the temperature for those coordinates by calling the first function.
 
@@ -174,7 +175,7 @@ swiftpm {
 }
 ```
 
-First, we add the *Swift Packages for Gradle* plugin to our project, that will take care of building the Swift Package, generating Java API as well as packaging everthing inside the finel application. 
+First, we add the *Swift Packages for Gradle* plugin to our project, that will take care of building the Swift Package, generating Java API as well as packaging everthing inside the finel application.
 
 Next, we add a configuration block for the plugin, where we specify the path to the Swift Package we want to use, the name of the product we want to use from this package and the Java version we want to be compatible with (the default is 11, we use 8 because we want to support older versions of the Android API ). The last parameter specify whether we want to automatically update the *Swift Toolchain for Android*.
 
@@ -188,7 +189,7 @@ Now, we can open the `MainActivity.kt` file and implement the user interface log
 import WeatherService.WeatherService
 ```
 
-The Java API class and package names are generated based on the Swift target name and the class name, so in this case, the target is `WeatherService` and the class is `WeatherService`.   
+The Java API class and package names are generated based on the Swift target name and the class name, so in this case, the target is `WeatherService` and the class is `WeatherService`.
 
 Next, we add the User-Interface related logic and calling the `WeatherService` to the `MainActivity` class. The complete code of the `MainActivity.kt` file is presented below:
 
