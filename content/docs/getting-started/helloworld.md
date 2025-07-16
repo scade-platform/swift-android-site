@@ -3,6 +3,15 @@ title: Hello World Tutorial
 description: Tutorial to develop a minimal Android App using Swift
 ---
 
+## Overview
+The HelloWorld example shows how to develop a simple Swift class in Xcode, compile it to a native Android library, and very easily call the code in Android Studio. 
+
+- Functionality demonstrated
+	- Call methods of a Swift class natively in Android
+- Technology demonstrated
+	- Swift Android compiler 
+
+
 ## Develop in Xcode
 
 ### Create Xcode project directory
@@ -185,7 +194,6 @@ Please ensure that the Android NDK is installed. See also Installation > Android
 14. Choose **Empty Activity**
 15. Call the project **HelloWorld**
 	- Choose **Kotlin DSL** as build configuration language
-
 ![img](./../img/helloworld_android_newprojectsettings2.png)
 
 ### Setup the gradle config file in the app directory
@@ -208,10 +216,10 @@ Please ensure that the Android NDK is installed. See also Installation > Android
 	}	
 	```
 
- - the **path** needs to point to the directory of the Swift project. See step 1
- - set the **product** to "HelloWorld"
+	 - the **path** needs to point to the directory of the Swift project. See step 1
+	 - set the **product** to "HelloWorld"
 
-![img](./../img/helloworld_android_newprojectgradleconfig1a.png)
+	![img](./../img/helloworld_android_newprojectgradleconfig1a.png)
 
 ### Build the project
 19. Buld the project. When you run the build for the first time, it downloads all dependencies and compiles the source code. This could **take 2-3 minutes**. Subsequent build will be much faster
