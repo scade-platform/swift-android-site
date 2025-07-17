@@ -9,6 +9,8 @@ The HelloWorld example shows how to develop a simple Swift class in Xcode, compi
 |:----------|:----------|
 | • Call methods of a Swift class  <br/>• Pass closures |• Swift Android compiler <br/>• Swift4J   |
 
+The HelloWorld tutorial is extremely detailed. Please ensure to understand each step. In other tutorials, we will omit some instructions to avoid instruction bloat. 
+
 ## Develop in Xcode
 
 ### Create Xcode project directory
@@ -238,6 +240,13 @@ Please run the Android project. You have to assign a simular and configure a run
 ### Invoke Swift logic from Android UI 
 By now, we compiled Swift code to Android. We included the resulting library called HelloWorld in the Android project and had SCADE generate the interop code. We now can bind the logic to the UI
 
+21. Import the code using the import command. Add  
+```kotlin
+import HelloWorld.GreetingService
+```
+
+If Android Studio cannot find the namespace or class, use the **Sync Project with Grade File** menu from Android Studio.
+
 22. Add code to load the library
 	
 	Add the line **System.loadLibrary("HelloWorld")** in the onCreate method to load the HelloWorld library.
@@ -253,7 +262,7 @@ class MainActivity : ComponentActivity() {
 	
 	This loads your Swift code into memory and the code is ready to use.
 	
-22. Finally, call the Swift code 
+23. Finally, call the Swift code 
 
 	SCADE interop functionality produces extremely powerful interop code. Calling our **greet** method develoepd in Swift code is extremely easy. Add the following code in the next line:
 	
@@ -270,7 +279,7 @@ class MainActivity : ComponentActivity() {
 		
 	Great, so we coded our first call to a Swift method in Android.
 
-23. Bind the variable to the UI Text label
+24. Bind the variable to the UI Text label
 Bind the greeting variable into the UI. In the **setContent** code, set name to the variable greeting (name = greeting)
 
 	```kotlin
@@ -299,7 +308,75 @@ Bind the greeting variable into the UI. In the **setContent** code, set name to 
 	    }
 	}
 	```
-	This centers the Text control by introducing a Box control
+	This centers the text control by introducing a Box control
+	
+	**We are done!**	
+	
+	Here the full code for MainActivity.kt and a screenshot for overview and validation purposes:
+		![img](./../img/helloworld-android-MainActivity.png)
+		
+	and the entire code for MainActivity.kt
+	
+	```kotlin
+	package com.example.helloworld
+		
+	import androidx.compose.foundation.layout.Box
+	import androidx.compose.foundation.layout.fillMaxSize
+	import androidx.compose.ui.Alignment
+	import android.os.Bundle
+	import androidx.activity.ComponentActivity
+	import androidx.activity.compose.setContent
+	import androidx.activity.enableEdgeToEdge
+	import androidx.compose.foundation.layout.padding
+	import androidx.compose.material3.Scaffold
+	import androidx.compose.material3.Text
+	import androidx.compose.runtime.Composable
+	import androidx.compose.ui.Modifier
+	import androidx.compose.ui.tooling.preview.Preview
+	import com.example.helloworld.ui.theme.HelloWorldTheme
+	import HelloWorld.GreetingService
+		
+	class MainActivity : ComponentActivity() {
+	    override fun onCreate(savedInstanceState: Bundle?) {
+	        super.onCreate(savedInstanceState)
+	        enableEdgeToEdge()
+		
+	        System.loadLibrary("HelloWorld")
+		
+	        val greeting = GreetingService().greet("rocks") { name: String -> "SCADE AppLo  gic "  + name.uppercase() + "!!!" }
+		
+	        setContent {
+	            HelloWorldTheme {
+	                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
+	                    Greeting(
+	                        name = greeting,
+	                        modifier = Modifier.padding(innerPadding)
+	                    )
+	                }
+	            }
+	        }
+	    }
+	}
+		
+	@Composable
+	fun Greeting(name: String, modifier: Modifier = Modifier) {
+	    Box(
+	        modifier = modifier.fillMaxSize(),
+	        contentAlignment = Alignment.Center
+	    ) {
+	        Text(text = "$name!")
+	    }
+	}
+		
+	@Preview(showBackground = true)
+	@Composable
+	fun GreetingPreview() {
+	    HelloWorldTheme {
+	        Greeting("Android")
+	    }
+	}
+	```
+	
 	
 
 
