@@ -16,8 +16,8 @@ const Footer = () => {
   return (
     <footer className="footer">
       <div
-        className="section max-w-[600px] flex justify-between align-baseline ml-auto">
-        <Link href='/' className="navbar-brand mt-[2px]">
+        className="section max-w-[600px] flex justify-between align-baseline ml-auto items-center sm:items-start flex-col sm:flex-row">
+        <Link href='/' className="navbar-brand mt-[4px] mb-4 sm:mb-0">
           <img src={`${basePath}/logo-scade.svg`} className="img-fluid" alt="logo"/>
         </Link>
         <nav className="footer-nav text-right">
