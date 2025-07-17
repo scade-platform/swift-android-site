@@ -8,7 +8,7 @@ July 14 , 2025
 
 We reworked our website to further enhance clarity and show you the ease with which you can develop Android applications with Swift.
 
-# July update of SCADE Applogic
+# July 2025 SCADE Applogic Update
 July 14 , 2025
 
 1. Full support for the latest Swift 6.1 – bringing all the newest language features seamlessly into your projects.
