@@ -18,7 +18,7 @@ export default async function Page(props: {
   const MDX = page.data.body;
 
   return (
-    <DocsPage footer={{enabled:false}} toc={page.data.toc} full={page.data.full}>
+    <DocsPage footer={{enabled:true}} toc={page.data.toc} tableOfContent={{style:'clerk'}} full={page.data.full}>
       <DocsTitle>{page.data.title}</DocsTitle>
       <DocsDescription>{page.data.description}</DocsDescription>
       <DocsBody>

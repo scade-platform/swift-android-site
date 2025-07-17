@@ -3,7 +3,7 @@ import Link from "next/link";
 import DynamicTextField from '@/components/DynamicTextField';
 import getDynamicTextFieldMetadata from '@/utils/getDynamicTextField';
 import TextChangeWidth from '@/components/TextChangeWidth';
-import Footer from "@/components/Footer";
+import FooterSmall from "@/components/FooterSmall";
 
 
 export default function SwiftForAndroid() {
@@ -46,7 +46,7 @@ export default function SwiftForAndroid() {
             Get Started
           </Link>
         </div>
-        <div className="flex items-center m-[auto]"><Footer/></div>
+        <div className="flex items-center m-[auto]"><FooterSmall/></div>
       </main>
 
     </div>

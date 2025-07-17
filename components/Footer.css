@@ -1,29 +1,42 @@
 .footer {
-  padding: 2rem;
+  padding: 4rem 1rem 2rem;
   display: block;
   width: 100%;
+  background-color: rgba(124, 124, 124, 0.1);
+  color: var(--muted);
 }
 
 .footer-nav {
   display: flex;
-  justify-content: center; /* Center the links horizontally */
-  align-items: center; /* Align items vertically to their centerlines */
-  gap: 16px; /* Add spacing between the links */
+  justify-content: right;
+  align-items: center;
+  gap: 0.7em;
 }
 
 .footer-nav a {
   display: flex;
-  align-items: center; /* Align the icon and text vertically */
-  text-decoration: none; /* Remove underline from links */
-  color: inherit; /* Inherit text color */
-  font-size: 16px; /* Adjust font size if needed */
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
+  font-size: 16px;
 }
 
 .footer-nav a svg {
-  margin-right: 8px; /* Add spacing between the icon and text */
+  margin-right: 8px;
 }
 
 .footer-nav img {
   width: 24px;
   height: 24px;
+}
+
+.footer-links .nav-link:not(:first-child)::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 20%;
+  height: 1.2em;
+  width: 1px;
+  background-color: black; /* or any color you want */
 }
