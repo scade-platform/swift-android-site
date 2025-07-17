@@ -4,24 +4,11 @@ description: Tutorial to develop a minimal Android App using Swift
 ---
 
 ## Overview
-<<<<<<< HEAD
 The HelloWorld example shows how to develop a simple Swift class in Xcode, compile it to a native Android library, and very easily call the code in Android Studio. 
-=======
-The HelloWorld example shows how to develop a simple Swift class in Xcode, compile it to a native Android library, and very easily call the code in Android Studio.
-
->>>>>>> efe6bef25bcc42588fb37a5f049ed348bff96108
-| Functionality  | Technology |
+| Functionality used | Technology used |
 |:----------|:----------|
-| • Call methods of a Swift class  |• Swift Android compiler <br/>• Swift4J   |
+| • Call methods of a Swift class  <br/>• Pass closures |• Swift Android compiler <br/>• Swift4J   |
 
-
-<<<<<<< HEAD
-=======
-| Functionality  | Data A |
-| Technology | Data B |
-
-
->>>>>>> efe6bef25bcc42588fb37a5f049ed348bff96108
 ## Develop in Xcode
 
 ### Create Xcode project directory
@@ -62,8 +49,9 @@ As a result you see
 
 	```swift
 	public class GreetingService {
-	  func greet(name: String, _ response: (String) -> Void) {
-	    response("Swift greets \(name)")
+	    // applies the function fct to the String parameter name and returns the result
+	    func greet(name: String, _ fct:  (String) -> String) -> String {
+	      return fct(name)
 	  }
 	}
 	```
@@ -71,29 +59,31 @@ As a result you see
 	- This is a very simple class with a function greet
 	- Function greet has two argument
 		- **name**: a variale of type string
-		- **response**: a variable of type closure
-	- the function executes the closure using the name argument as a input
-![img](./../img/helloworld-xcode1.png)
+		- **fct**: a variable of type closure
+	- the function executes the closure using the name argument as a input and returns a string
+
+![img](./../img/helloworld-xcode2_newGreet.png) 
 ### Add @jvm to compile the class to Android
 Now we make the changes to be able to compile the class to Android
 
 5. Add **@jvm** to the classes you want to compile to Android. In our case here, we add **@jvm** to the GreetingService class
 
-6. The **@jvm** annotation is part of the Swift4J library. Please import Swift4J using **import Swift4j** (pay attention to the smaller case j)
+6.  Please import Swift4J using **import Swift4j** (pay attention to the smaller case j). The @jvm annotation is part of the Swift4J library.
 
 	```swift
 	import Swift4j
 
 	@jvm
 	public class GreetingService {
-	  func greet(name: String, _ response: (String) -> Void) {
-	    response("Swift greets \(name)")
+	    // applies the function fct to the String parameter name and returns the result
+	    func greet(name: String, _ fct:  (String) -> String) -> String {
+	      return fct(name)
 	  }
 	}
 	```
 7. As you can see, Xcode is complaining about the missing module Swift4J ("No such module Swif4J")
 
-![img](./../img/helloworld-xcode2.png)
+![img](./../img/helloworld-xcode2_newGreetAlert.png) 
 
 ### Add Swift4J dependency in package.swift
 To fix the compile errors and compile the Swift project, you now need to add the necessary dependencies and modify the **package.swift** as described here.
@@ -229,7 +219,67 @@ Please ensure that the Android NDK is installed. See also Installation > Android
 
 	![img](./../img/helloworld_android_newprojectgradleconfig1a.png)
 
-### Build the project
-19. Buld the project. When you run the build for the first time, it downloads all dependencies and compiles the source code. This could **take 2-3 minutes**. Subsequent build will be much faster
+### Build and run the project to see its working
+19. Buld the project. When you run the build for the first time, it downloads all dependencies and compiles the source code. This could **take 2-3 minutes**. Subsequent build will be much faster.
 
-20.
+	Once the build has succeded, you can find the Java interop code here 
+	![img](./../img/helloworld_android_buildJavaClasses.png)
+
+
+20. Run the Android Project
+Please run the Android project. You have to assign a simular and configure a run file. 
+	
+	<Callout type="warn">
+	If your run button in Android Studio is grayed out, this is an Android Studio issue and you need to restart Android Studio. 
+	</Callout>
+	
+	![img](./../img/helloworld_android_run1.png)
+
+### Invoke Swift logic from Android UI 
+By now, we compiled Swift code to Android. We included the resulting library called HelloWorld in the Android project and had SCADE generate the interop code. We now can bind the logic to the UI
+
+22. Add code to load the library
+	
+	Add the line **System.loadLibrary("HelloWorld")** in the onCreate method to load the HelloWorld library.
+
+	```kotlin
+class MainActivity : ComponentActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        enableEdgeToEdge()
+
+        System.loadLibrary("HelloWorld")
+	```
+	
+	This loads your Swift code into memory and the code is ready to use.
+	
+22. Finally, call the Swift code 
+
+	SCADE interop functionality produces extremely powerful interop code. Calling the Swift code is extremely easy. Add the following code in the next line:
+	
+	```kotlin
+        val greeting = GreetingService().greet("rocks") { name: String -> "SCADE AppLo  gic "  + name.uppercase() + "!!!" }
+	```
+
+
+
+
+
+ (Optional) Make small change to the UI to center the label 
+We love beauty, so lets center the label so that the Android app look nice:
+	- open the MainActivity.kt file
+	- replace the fun Greeting function with the following code
+
+		```kotlin
+		@Composable
+	fun Greeting(name: String, modifier: Modifier = Modifier) {
+	    Box(
+	        modifier = modifier.fillMaxSize(),
+	        contentAlignment = Alignment.Center
+	    ) {
+	        Text(text = "$name!")
+	    }
+	}
+	```
+
+
