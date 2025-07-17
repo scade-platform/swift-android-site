@@ -255,27 +255,41 @@ class MainActivity : ComponentActivity() {
 	
 22. Finally, call the Swift code 
 
-	SCADE interop functionality produces extremely powerful interop code. Calling the Swift code is extremely easy. Add the following code in the next line:
+	SCADE interop functionality produces extremely powerful interop code. Calling our **greet** method develoepd in Swift code is extremely easy. Add the following code in the next line:
 	
 	```kotlin
         val greeting = GreetingService().greet("rocks") { name: String -> "SCADE AppLo  gic "  + name.uppercase() + "!!!" }
 	```
 
 	- First we instantiate the GreetingService 
-	- then we call the greet method with paramter name set to "rocks"
+	- then we call the **greet** method with paramter name set to "rocks"
 	- we then pass in the closure
 		- the closure takes a String as an input, converts into to uppercase cand oncatenates it with two String constants
-		- the closure then returns the result	
+		- the closure then returns the result
+	- we store the result in a variable greeting
+		
+	Great, so we coded our first call to a Swift method in Android.
 
+23. Bind the variable to the UI Text label
+Bind the greeting variable into the UI. In the **setContent** code, set name to the variable greeting (name = greeting)
 
+	```kotlin
+    setContent {
+        HelloWorldTheme {
+            Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
+                Greeting(
+                    name = greeting,
+                    modifier = Modifier.padding(innerPadding)
+                )
+            }
+        }
+    }
+	```
 
- (Optional) Make small change to the UI to center the label 
-We love beauty, so lets center the label so that the Android app look nice:
-	- open the MainActivity.kt file
-	- replace the fun Greeting function with the following code
-
-		```kotlin
-		@Composable
+	As a final (optional) step, we make the UI more beautiful by centering the label. Replace the fun **Greeting function** with the following code
+	
+	```kotlin
+	@Composable
 	fun Greeting(name: String, modifier: Modifier = Modifier) {
 	    Box(
 	        modifier = modifier.fillMaxSize(),
@@ -285,5 +299,7 @@ We love beauty, so lets center the label so that the Android app look nice:
 	    }
 	}
 	```
+	This centers the Text control by introducing a Box control
+	
 
 
