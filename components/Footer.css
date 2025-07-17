@@ -38,5 +38,5 @@
   bottom: 20%;
   height: 1.2em;
   width: 1px;
-  background-color: black; /* or any color you want */
+  background-color: var(--foreground);
 }
