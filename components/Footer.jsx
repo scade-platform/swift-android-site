@@ -42,7 +42,7 @@ const Footer = () => {
             key={item.name}
             href={item.href}
             target={item.target}
-            className={`nav-link md:px-8`}
+            className={`nav-link md:px-8 px-4`}
           >
             {item.name}
           </Link>
