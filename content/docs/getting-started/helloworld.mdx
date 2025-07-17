@@ -5,33 +5,35 @@ description: Tutorial to develop a minimal Android App using Swift
 
 ## Overview
 The HelloWorld example shows how to develop a simple Swift class in Xcode, compile it to a native Android library, and very easily call the code in Android Studio. 
+
 | Functionality used | Technology used |
-|:----------|:----------|
+|:-------------------|:----------------|
 | • Call methods of a Swift class  <br/>• Pass closures |• Swift Android compiler <br/>• Swift4J   |
 
-The HelloWorld tutorial is extremely detailed. Please ensure to understand each step. In other tutorials, we will omit some instructions to avoid instruction bloat. 
+The HelloWorld tutorial is extremely detailed. Please ensure you understand each step. In other tutorials, we will omit some instructions to avoid instruction bloat. 
 
 ## Develop in Xcode
 
 ### Create Xcode project directory
-1. Create directory **HelloWorld** that contains your Swift library. Lets refer to this as project directory.
+1. Create a directory **HelloWorld** that contains your Swift library. Let's refer to this as the project directory.
 
 	```bash filename="Terminal"
 	./Projects % mkdir HelloWorld
 	```
 
 ### Create Xcode project
-2. Create an Xcode project that contains your shared code
+2. Create an Xcode project that contains your shared code:
 
 	```swift
 	swift package init --type library --name HelloWorld
 	```
-Make sure to use it from  **inside** your project directory
+Make sure to use it from **inside** your project directory:
 
 	```bash filename="Terminal"
 	./Projects/HelloWorld  % swift package init --type library --name HelloWorld
 	```
-As a result you see
+
+As a result, you see:
 
 	```bash filename="Terminal"
 	Creating library package: HelloWorld
@@ -41,13 +43,14 @@ As a result you see
 	Creating Sources/HelloWorld/HelloWorld.swift
 	Creating Tests/
 	Creating Tests/HelloWorldTests/
-	Creating Tests/HelloWorldTests/HelloWorldTests.swift\
+	Creating Tests/HelloWorldTests/HelloWorldTests.swift
 	```
+
 ### Open project in Xcode and add first Swift class
 
-3. Open project in Xcode
+3. Open the project in Xcode.
 
-4. Create Swift class called **GreetingService**
+4. Create a Swift class called **GreetingService**:
 
 	```swift
 	public class GreetingService {
@@ -58,19 +61,20 @@ As a result you see
 	}
 	```
 
-	- This is a very simple class with a function greet
-	- Function greet has two argument
-		- **name**: a variale of type string
+	- This is a very simple class with a function `greet`.
+	- Function `greet` has two arguments:
+		- **name**: a variable of type `String`
 		- **fct**: a variable of type closure
-	- the function executes the closure using the name argument as a input and returns a string
+	- The function executes the closure using the `name` argument as an input and returns a `String`.
 
-![img](./../img/helloworld-xcode2_newGreet.png) 
+![img](./../img/helloworld-xcode2_newGreet.png)
+
 ### Add @jvm to compile the class to Android
-Now we make the changes to be able to compile the class to Android
+Now we make the changes to be able to compile the class to Android.
 
-5. Add **@jvm** to the classes you want to compile to Android. In our case here, we add **@jvm** to the GreetingService class
+5. Add **@jvm** to the classes you want to compile to Android. In our case here, we add **@jvm** to the `GreetingService` class.
 
-6.  Please import Swift4J using **import Swift4j** (pay attention to the smaller case j). The @jvm annotation is part of the Swift4J library.
+6. Import Swift4J using **import Swift4j** (pay attention to the lowercase **j**). The @jvm annotation is part of the Swift4J library.
 
 	```swift
 	import Swift4j
@@ -83,23 +87,24 @@ Now we make the changes to be able to compile the class to Android
 	  }
 	}
 	```
-7. As you can see, Xcode is complaining about the missing module Swift4J ("No such module Swif4J")
 
-![img](./../img/helloworld-xcode2_newGreetAlert.png) 
+7. As you can see, Xcode is complaining about the missing module Swift4J ("No such module Swift4J").
+
+![img](./../img/helloworld-xcode2_newGreetAlert.png)
 
 ### Add Swift4J dependency in package.swift
-To fix the compile errors and compile the Swift project, you now need to add the necessary dependencies and modify the **package.swift** as described here.
+To fix the compile errors and compile the Swift project, you now need to add the necessary dependencies and modify the **Package.swift** as described here.
 
-The steps describe the necessary changes. Either carefully make the changes yourself for learning and training purposes to the existing package.swift or alternative copy and replace the package.swift from the code snippet at the bottom.
+The steps describe the necessary changes. Either carefully make the changes yourself for learning and training purposes to the existing Package.swift or alternatively copy and replace the Package.swift from the code snippet at the bottom.
 
-8. Change 1: Add a **platform** with minimum version
-This is not included by default.
+8. Change 1: Add a **platform** with minimum version (not included by default):
 
 	```swift
 	   platforms: [
 	        .macOS(.v13)
 	       ],
 	```
+
 	This ensures a minimum version and avoids compiler errors.
 
 9. Change 2: You need to set the **library target type** to **dynamic**:
@@ -108,9 +113,9 @@ This is not included by default.
 	   type: .dynamic,
 	```
 
-	This is due to limitations of JNI. Only Swift targets that are parts of dynamic libraries can be accessed from Java/Kotlin.
+	This is due to limitations of JNI. Only Swift targets that are part of dynamic libraries can be accessed from Java/Kotlin.
 
-10. Change 3: add a dependency on the swift4j package into the Package.swift file
+10. Change 3: Add a dependency on the Swift4J package into the `Package.swift` file:
 
 	```swift
 	  dependencies: [
@@ -118,7 +123,7 @@ This is not included by default.
 	  ]
 	```
 
-11. Change 4:  add the Swift4j package as a dependency to our **target**
+11. Change 4: Add the Swift4J package as a dependency to our **target**:
 
 	```swift
 	.target(
@@ -129,59 +134,47 @@ This is not included by default.
 	)
 	```
 
-The entire updated package.swift file show now look like below. Instead of making the changes yourself, you might copy the entire code into Xcode package.swift file.
+The entire updated `Package.swift` file should now look like below:
 
-```swift
-
-// swift-tools-version: 5.10
-// The swift-tools-version declares the minimum version of Swift required to build this package.
-
-import Foundation
-import PackageDescription
-
-let package = Package(
-        // Package.swift
-
-    name: "HelloWorld",
-
-    // Change 1 - add at least a target with version > .v13
-    platforms: [
-        .macOS(.v13)
-       ],
-
-    products: [
-        .library(
-            name: "HelloWorld",
-
-            // Change 2 - add at least a target with version > .v13
-            type: .dynamic,
-
-
-            targets: ["HelloWorld"])
-    ],
-
-    dependencies: [
-      //  Change 3  - we use the Swift4j package to mark the Swift code that should be available on Android as Java API
-        .package(url: "https://github.com/scade-platform/swift4j.git", from: "1.2.1")
-    ],
-
-    targets: [
-        .target(
-            name: "HelloWorld",
-            dependencies: [
-
-                // Change 4:  We add the Swift4j package as a dependency to our target
-              .product(name: "Swift4j", package: "swift4j")
-            ]
-        )
-    ]
-)
-```
+	```swift
+	// swift-tools-version: 5.10
+	// The swift-tools-version declares the minimum version of Swift required to build this package.
+	
+	import Foundation
+	import PackageDescription
+	
+	let package = Package(
+	    name: "HelloWorld",
+	
+	    platforms: [
+	        .macOS(.v13)
+	       ],
+	
+	    products: [
+	        .library(
+	            name: "HelloWorld",
+	            type: .dynamic,
+	            targets: ["HelloWorld"])
+	    ],
+	
+	    dependencies: [
+	        .package(url: "https://github.com/scade-platform/swift4j.git", from: "1.2.1")
+	    ],
+	
+	    targets: [
+	        .target(
+	            name: "HelloWorld",
+	            dependencies: [
+	              .product(name: "Swift4j", package: "swift4j")
+	            ]
+	        )
+	    ]
+	)
+	````
 
 ### Build should now be successful
-Your build should now be successful. In some cases, you also need to give permission to access the Swift4j library. You can do this using Xcode by clicking on the error message and approving the library.
 
-
+Your build should now be successful. In some cases, you also need to give permission to access the Swift4J library. You can do this in Xcode by clicking on the error message and approving the library.
 
 ## Share Swift code and develop on Android Studio
 
@@ -190,197 +183,204 @@ Please ensure that the Android NDK is installed. See also Installation > Android
 </Callout>
 
 ### Create new Android project
+
 13. Choose **File > New Project**
 14. Choose **Empty Activity**
 15. Call the project **HelloWorld**
-	- Choose **Kotlin DSL** as build configuration language
+
+    * Choose **Kotlin DSL** as build configuration language
+
 ![img](./../img/helloworld_android_newprojectsettings2.png)
 
 ### Setup the gradle config file in the app directory
-16. Open the **build.gradle.kts** file in the <span style={{ fontWeight: 'bold', color:'red' }} >app directory</span> directory
- - There is a 2nd build.gradle.kts outside of the app directory. Dont use that one
 
-17. Add the SCADE Swift Product Manager **plugin** under plugins
+16. Open the **build.gradle.kts** file in the \<span style={{ fontWeight: 'bold', color:'red' }}>app directory</span>
 
-	```gradle
-	id("io.scade.gradle.plugins.android.swiftpm") version "1.1.1"
-	```
-18. Add the SCADE Swift Product Manager **configuration** at the bottom of the file
+* There is a 2nd `build.gradle.kts` outside of the app directory. Don’t use that one.
 
-	```gradle
-	swiftpm {
-	    path = file("<fullpath>/Projects/HelloWorld")
-	    product = "HelloWorld"
-	    javaVersion = 8
-	    scdAutoUpdate = true
-	}
-	```
+17. Add the SCADE Swift Product Manager **plugin** under plugins:
 
-	 - the **path** needs to point to the directory of the Swift project. See step 1
-	 - set the **product** to "HelloWorld"
+    ```gradle
+    id("io.scade.gradle.plugins.android.swiftpm") version "1.1.1"
+    ```
 
-	![img](./../img/helloworld_android_newprojectgradleconfig1a.png)
+18. Add the SCADE Swift Product Manager **configuration** at the bottom of the file:
 
-### Build and run the project to see its working
-19. Buld the project. When you run the build for the first time, it downloads all dependencies and compiles the source code. This could **take 2-3 minutes**. Subsequent build will be much faster.
+    ```gradle
+    swiftpm {
+        path = file("<fullpath>/Projects/HelloWorld")
+        product = "HelloWorld"
+        javaVersion = 8
+        scdAutoUpdate = true
+    }
+    ```
 
-	Once the build has succeded, you can find the Java interop code here 
-	![img](./../img/helloworld_android_buildJavaClasses.png)
+    * The **path** needs to point to the directory of the Swift project (see step 1).
+    * Set the **product** to "HelloWorld".
 
+![img](./../img/helloworld_android_newprojectgradleconfig1a.png)
+
+### Build and run the project to see it's working
+
+19. Build the project. When you run the build for the first time, it downloads all dependencies and compiles the source code. This could **take 2–3 minutes**. Subsequent builds will be much faster.
+
+    Once the build has succeeded, you can find the Java interop code here:
+    ![img](./../img/helloworld_android_buildJavaClasses.png)
 
 20. Run the Android Project
-Please run the Android project. You have to assign a simular and configure a run file. 
-	
-	<Callout type="warn">
-	If your run button in Android Studio is grayed out, this is an Android Studio issue and you need to restart Android Studio. 
-	</Callout>
-	
-	![img](./../img/helloworld_android_run1.png)
+    Please run the Android project. You have to assign a simulator and configure a run file.
 
-### Invoke Swift logic from Android UI 
-By now, we compiled Swift code to Android. We included the resulting library called HelloWorld in the Android project and had SCADE generate the interop code. We now can bind the logic to the UI
+<Callout type="warn">
+If your run button in Android Studio is grayed out, this is an Android Studio issue and you need to restart Android Studio. 
+</Callout>
 
-21. Import the code using the import command. Add  
+![img](./../img/helloworld_android_run1.png)
+
+### Invoke Swift logic from Android UI
+
+By now, we compiled Swift code to Android. We included the resulting library called HelloWorld in the Android project and had SCADE generate the interop code. We now can bind the logic to the UI.
+
+21. Import the code using the import command. Add:
+
 ```kotlin
 import HelloWorld.GreetingService
 ```
 
-If Android Studio cannot find the namespace or class, use the **Sync Project with Grade File** menu from Android Studio.
+If Android Studio cannot find the namespace or class, use the **Sync Project with Gradle File** menu from Android Studio.
 
 22. Add code to load the library
-	
-	Add the line **System.loadLibrary("HelloWorld")** in the onCreate method to load the HelloWorld library.
+    Add the line **System.loadLibrary("HelloWorld")** in the `onCreate` method to load the HelloWorld library.
 
-	```kotlin
+```kotlin
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
 
         System.loadLibrary("HelloWorld")
-	```
-	
-	This loads your Swift code into memory and the code is ready to use.
-	
-23. Finally, call the Swift code 
+```
 
-	SCADE interop functionality produces extremely powerful interop code. Calling our **greet** method develoepd in Swift code is extremely easy. Add the following code in the next line:
-	
-	```kotlin
-        val greeting = GreetingService().greet("rocks") { name: String -> "SCADE AppLo  gic "  + name.uppercase() + "!!!" }
-	```
+This loads your Swift code into memory and the code is ready to use.
 
-	- First we instantiate the GreetingService 
-	- then we call the **greet** method with paramter name set to "rocks"
-	- we then pass in the closure
-		- the closure takes a String as an input, converts into to uppercase cand oncatenates it with two String constants
-		- the closure then returns the result
-	- we store the result in a variable greeting
-		
-	Great, so we coded our first call to a Swift method in Android.
+23. Finally, call the Swift code
+    SCADE interop functionality produces extremely powerful interop code. Calling our **greet**
+
+
+method developed in Swift code is extremely easy. Add the following code in the next line:
+
+```kotlin
+val greeting = GreetingService().greet("rocks") { name: String -> "SCADE AppLogic " + name.uppercase() + "!!!" }
+```
+
+* First, we instantiate the `GreetingService`.
+* Then we call the **greet** method with parameter `name` set to `"rocks"`.
+* We then pass in the closure:
+
+  * The closure takes a `String` as input, converts it to uppercase, and concatenates it with two `String` constants.
+  * The closure then returns the result.
+* We store the result in a variable `greeting`.
+
+Great! So we coded our first call to a Swift method in Android.
 
 24. Bind the variable to the UI Text label
-Bind the greeting variable into the UI. In the **setContent** code, set name to the variable greeting (name = greeting)
+    Bind the `greeting` variable into the UI. In the **setContent** code, set `name = greeting`.
 
-	```kotlin
-    setContent {
-        HelloWorldTheme {
-            Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                Greeting(
-                    name = greeting,
-                    modifier = Modifier.padding(innerPadding)
-                )
+```kotlin
+setContent {
+    HelloWorldTheme {
+        Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
+            Greeting(
+                name = greeting,
+                modifier = Modifier.padding(innerPadding)
+            )
+        }
+    }
+}
+```
+
+As a final (optional) step, we make the UI more beautiful by centering the label. Replace the **Greeting function** with the following code:
+
+```kotlin
+@Composable
+fun Greeting(name: String, modifier: Modifier = Modifier) {
+    Box(
+        modifier = modifier.fillMaxSize(),
+        contentAlignment = Alignment.Center
+    ) {
+        Text(text = "$name!")
+    }
+}
+```
+
+This centers the text control by introducing a `Box` control.
+
+**We are done!**
+
+Here’s the full code for `MainActivity.kt`:
+
+![img](./../img/helloworld-android-MainActivity.png)
+
+```kotlin
+package com.example.helloworld
+
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.ui.Alignment
+import android.os.Bundle
+import androidx.activity.ComponentActivity
+import androidx.activity.compose.setContent
+import androidx.activity.enableEdgeToEdge
+import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.tooling.preview.Preview
+import com.example.helloworld.ui.theme.HelloWorldTheme
+import HelloWorld.GreetingService
+
+class MainActivity : ComponentActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        enableEdgeToEdge()
+
+        System.loadLibrary("HelloWorld")
+
+        val greeting = GreetingService().greet("rocks") { name: String -> "SCADE AppLogic " + name.uppercase() + "!!!" }
+
+        setContent {
+            HelloWorldTheme {
+                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
+                    Greeting(
+                        name = greeting,
+                        modifier = Modifier.padding(innerPadding)
+                    )
+                }
             }
         }
     }
-	```
+}
 
-	As a final (optional) step, we make the UI more beautiful by centering the label. Replace the fun **Greeting function** with the following code
-	
-	```kotlin
-	@Composable
-	fun Greeting(name: String, modifier: Modifier = Modifier) {
-	    Box(
-	        modifier = modifier.fillMaxSize(),
-	        contentAlignment = Alignment.Center
-	    ) {
-	        Text(text = "$name!")
-	    }
-	}
-	```
-	This centers the text control by introducing a Box control
-	
-	**We are done!**	
-	
-	Here the full code for MainActivity.kt and a screenshot for overview and validation purposes:
-		![img](./../img/helloworld-android-MainActivity.png)
-		
-	and the entire code for MainActivity.kt
-	
-	```kotlin
-	package com.example.helloworld
-		
-	import androidx.compose.foundation.layout.Box
-	import androidx.compose.foundation.layout.fillMaxSize
-	import androidx.compose.ui.Alignment
-	import android.os.Bundle
-	import androidx.activity.ComponentActivity
-	import androidx.activity.compose.setContent
-	import androidx.activity.enableEdgeToEdge
-	import androidx.compose.foundation.layout.padding
-	import androidx.compose.material3.Scaffold
-	import androidx.compose.material3.Text
-	import androidx.compose.runtime.Composable
-	import androidx.compose.ui.Modifier
-	import androidx.compose.ui.tooling.preview.Preview
-	import com.example.helloworld.ui.theme.HelloWorldTheme
-	import HelloWorld.GreetingService
-		
-	class MainActivity : ComponentActivity() {
-	    override fun onCreate(savedInstanceState: Bundle?) {
-	        super.onCreate(savedInstanceState)
-	        enableEdgeToEdge()
-		
-	        System.loadLibrary("HelloWorld")
-		
-	        val greeting = GreetingService().greet("rocks") { name: String -> "SCADE AppLo  gic "  + name.uppercase() + "!!!" }
-		
-	        setContent {
-	            HelloWorldTheme {
-	                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-	                    Greeting(
-	                        name = greeting,
-	                        modifier = Modifier.padding(innerPadding)
-	                    )
-	                }
-	            }
-	        }
-	    }
-	}
-		
-	@Composable
-	fun Greeting(name: String, modifier: Modifier = Modifier) {
-	    Box(
-	        modifier = modifier.fillMaxSize(),
-	        contentAlignment = Alignment.Center
-	    ) {
-	        Text(text = "$name!")
-	    }
-	}
-		
-	@Preview(showBackground = true)
-	@Composable
-	fun GreetingPreview() {
-	    HelloWorldTheme {
-	        Greeting("Android")
-	    }
-	}
-	```
-	
-	25. Run your first cross platform native Swift app
-		Press the run button and see the application running
-		![img](./../img/helloworld-android-app.png)
-		
-	
+@Composable
+fun Greeting(name: String, modifier: Modifier = Modifier) {
+    Box(
+        modifier = modifier.fillMaxSize(),
+        contentAlignment = Alignment.Center
+    ) {
+        Text(text = "$name!")
+    }
+}
 
+@Preview(showBackground = true)
+@Composable
+fun GreetingPreview() {
+    HelloWorldTheme {
+        Greeting("Android")
+    }
+}
+```
 
+25. Run your first cross-platform native Swift app
+    Press the run button and see the application running:
+
+![img](./../img/helloworld-android-app.png)
