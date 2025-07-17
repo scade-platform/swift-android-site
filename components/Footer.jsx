@@ -2,14 +2,12 @@ import React from 'react';
 import Link from 'next/link';
 import "./Footer.css"
 
-import { FaGithub, FaXTwitter, FaLinkedin, FaDiscord, FaFacebook } from "react-icons/fa6";
-import {FaMediumM} from "react-icons/fa";
+import { FaGithub, FaXTwitter, FaLinkedin, FaDiscord } from "react-icons/fa6";
 
 const navigation = [
-  {name: "Releases", href: "https://github.com/scade-platform/swift-android-toolchain/releases", target: "_blank"},
-  {name: "Blog", href: "/blog"},
+  {name: "Get started", href: "/docs/getting-started/developmentprocess"},
+  {name: "What's new", href: "/blog"},
   {name: "Pricing", href: "/pricing"},
-  {name: "Issues tracking", href: "https://github.com/scade-platform/swift-android-toolchain/issues", target: "_blank"},
 ];
 
 const Footer = () => {
@@ -26,12 +24,6 @@ const Footer = () => {
           <span className="font-bold color-foreground">Follow us:</span>
           <Link href="https://www.linkedin.com/company/scade-mobile/" target="_blank" aria-label="LinkedIn">
             <FaLinkedin />
-          </Link>
-          <Link href="https://medium.com/@SCADE" target="_blank" aria-label="Medium">
-            <FaMediumM />
-          </Link>
-          <Link href="https://www.facebook.com/SwiftForAndroidAndiOS" target="_blank" aria-label="LinkedIn">
-            <FaFacebook />
           </Link>
           <Link href="https://x.com/scade_platform" target="_blank" aria-label="X">
             <FaXTwitter />

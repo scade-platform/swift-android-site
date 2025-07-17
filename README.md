@@ -33,7 +33,7 @@ Follow these steps to change site the content:
    - Open the `app/page.tsx` file.
    - You may edit text inside page but be sure you have not touched any tags and mark down is not supported.
 
-2. **Blog**
+2. **What's new**
    - Open the `content/Blog/Blog.md` file.
    - You may edit text inside like with simple .md file.
 

@@ -6,7 +6,7 @@ import "./Navbar.css";
 const navigation = [
   {name: "Get started", href: "/docs/getting-started/developmentprocess"},
   {name: "Community", href: "https://discord.gg/ECxbtgx2ct", target: "_blank"},
-  {name: "Blog", href: "/blog"},
+  {name: "What's new", href: "/blog"},
 ];
 
 export default function Navbar() {

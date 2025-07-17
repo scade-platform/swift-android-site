@@ -1,5 +1,5 @@
 ---
-title: Blog
+title: What's new
 description: News and updates re Swift for Android
 ---
 
