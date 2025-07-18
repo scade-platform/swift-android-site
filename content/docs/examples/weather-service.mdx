@@ -146,13 +146,12 @@ class WeatherService {
 }
 ```
 
-In this code, we define a class `WeatherService` with two asynchronous methods:
-- **currentTemperature(latitude:longitude:response:)** - fetches temperature from Open-Meteo at given coordinates
-- **currentTemperature(city:response:)** - geocodes a city name to coordinates and then fetching the temperature for those coordinates by calling the first function.
-
-The implementation of both functions is based on the standard functionality provided by the `Foundation` framework, such as `URL` for networking and `JSONSerialization` for parsing JSON data. Both functions use Swift's `async/await` syntax to handle asynchronous operations, and the `response` closure is called with the temperature and its units when the data is successfully fetched and parsed.
-
-The code presented above can be used on any Apple platform without any restriction. The whole magic of making it available on Android is done by the `Swift4j` package, which allows us to mark the Swift class and its methods as Java API using the `@jvm` attribute. This way, the `WeatherService` class and its methods can be called from Java code in an Android application without any additional boilerplate code. Please, note that we make the first function private, so it is not visible in the Java API, while the second function is public and can be called from Java code.
+**Explanation:**
+- We define a class `WeatherService` with two asynchronous methods:
+  - **currentTemperature(latitude:longitude:response:)** - fetches temperature from Open-Meteo at given coordinates
+  - **currentTemperature(city:response:)** - geocodes a city name to coordinates and then fetching the temperature for those coordinates by calling the first function.
+- Both functions use standard Foundation functionalities (e.g., `URL` for networking, `JSONSerialization` for parsing JSON data) and Swift's `async/await` syntax.
+- The code runs on any Apple platform. The `Swift4j` package with the @jvm attribute exposes the WeatherService class and its methods as a Java API for Android. Please, note that the first function is private and hidden from Java; the second is public and accessible.
 
 The full source code of the package is available on [GitHub](https://github.com/scade-platform/swift4j-examples/tree/main/Packages/WeatherService).
 
@@ -160,9 +159,17 @@ Now is the time to move to the Android part of the application.
 
 ## Reuse Swift code on Android
 
-We create a new Android project in Android Studio. For this, we can use the *New Project* wizard and select the *Empty Activity* template as well as the *Kotlin DSL* as the *Build configuration language*  that will create a new Android project with the necessary files and configurations.
+### Create new Android project
+Create a new Android project in Android Studio using the *Empty Activity* template with the *Kotlin DSL* as the *Build configuration language*. This setup creates a new Android project with the necessary files and configurations.
 
-In order to use the `WeatherService` class in our Android application, we need to add the Swift Package as a dependency. To do this, we can open the `build.gradle.kts` file located inside the `app` folder (**IMPORTANT**: usually, there are two `build.gradle.kts` files: one located at the root of the project and the second is inside the `app` folder, that defines the actual build tasks and configuration) of our project and add the *Swift Packages for Gradle* plugin to the `plugins` block as well as a configuration section of the plugin to specify the Swift Package we want to use. The resulting file should look like this:
+### Setup the gradle config file in the app directory
+
+To use the `WeatherService` class in the Android application, add the Swift Package as a dependency:
+<ol>
+<li> Open the `build.gradle.kts` file located inside the `app` folder (**IMPORTANT**: there are usually two `build.gradle.kts` files; use the one in the `app` folder).</li>
+<li> Add the *Swift Packages for Gradle* plugin to the `plugins` block, and then add a configuration section for the plugin specifying the Swift Package to use.</li>
+
+The resulting file should look like this:
 
 ```kotlin
 plugins {
