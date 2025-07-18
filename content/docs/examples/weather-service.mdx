@@ -3,24 +3,33 @@ title: Weather Service
 description: Retrieve the current temperature for any city or location
 ---
 
+## Overview
+
 This example demonstrates how to build a weather service application that retrieves current temperature information for any city or geographic location. The app showcases real-world usage of networking and data parsing capabilities by integrating with external APIs to fetch and process weather data.
+
+| Functionality demonstrated | Technology demonstrated |Github Project |
+|:-------------------|:----------------|:----------------|
+| • Retrieving current temperature by city name <br/>• Geocoding city names into coordinates <br/>• Fetching weather data using coordinates <br/>• Chaining multiple API calls <br/>• Asynchronous network requests with closures <br/>• Dynamic UI update with fetched temperature <br/>• Reusing Swift logic inside Android UI |• Swift Android compiler <br/>• Swift4J <br/>• SwiftPM Gradle for Android <br/>• Foundation framework <br/>• Swift async/await <br/>• Jetpack Compose UI framework | [Examples](https://github.com/scade-platform/swift4j-examples) <br/><br/> |
+
 
 The Weather Service example highlights the most commonly used features from the Foundation framework:
 
 - **Networking**: Making asynchronous HTTP requests using `URL` to communicate with external APIs
 - **JSON Parsing**: Processing JSON responses using `JSONSerialization` to extract meaningful data from API responses
 
-The application uses two different APIs:
+APIs used:
 - **Open-Meteo** - retrieves weather data
 - **OpenStreetMap Nominatim** - geocodes city names into coordinates
 The app shows how to chain multiple API calls and handle different response formats.
 
-To build this weather service application, we split our task into two distinct parts described in the following sections: first, we develop the core app logic using Swift to handle data fetching and processing, and then we create the user interface targeting this logic in Android Studio.
+Architecture:
+To build this weather service application, the task is split into two distinct parts:
+- **Core App Logic:** Developed in Swift to handle data fetching and processing.
+- **User Interface:** Created in Android Studio to target the previously developed logic.
 
-The full source code together with an Android Studio project for this example is available on [GitHub](https://github.com/scade-platform/swift4j-examples)
+## Develop in Xcode
 
-## App logic in Swift
-
+### Create Xcode project
 We start by implementing the core logic of our weather service application in Swift. First, we generate a new Swift Package using the standard ```swift```command line tool that is available in the Swift toolchain:
 
 ```bash
@@ -28,8 +37,11 @@ swift package init --type library --name WeatherService
 ```
 
 For this step we can just use the Swift toolchain shipped within the Xcode.
+The command generates a new Swift Package with one target named `WeatherService` as well as a library product with the same name consisting of this target. 
 
-The command generates a new Swift Package with one target named `WeatherService` as well as a library product with the same name consisting of this target. Now, we edit the ```Package.swift``` file to add the dependencies we need for our application. The resulting file should look like this:
+### Editing Package.swift
+
+Now, we edit the ```Package.swift``` file to add the dependencies we need for our application. The resulting file should look like this:
 
 ```swift
 // swift-tools-version: 5.10
@@ -71,8 +83,11 @@ let package = Package(
 In this configuration, we changed the type of the library product to `.dynamic`, which is necessary for the library to be usable on Android. We also added a dependency on the `Swift4j` package, which provides the necessary functionality to expose Swift code as Java API.
 
 ### WeatherService class
+Next, we implement the core logic of our weather service application. Create a class named WeatherService in the file ```Sources/WeatherService/WeatherService.swift```. This class will handle:
+- Fetching weather data from the Open-Meteo API
+- Geocoding city names using the OpenStreetMap Nominatim API
 
-Next, we can start implementing the core logic of our weather service application. We will create a class named `WeatherService` in the ```Sources/WeatherService/WeatherService.swift``` file that will handle fetching weather data from the Open-Meteo API and geocoding city names using the OpenStreetMap Nominatim API. The shorted version of the code (omitting exception logging) is presented below:
+The shortened version of the code (omitting exception logging) is presented below:
 
 ```swift
 import Foundation
@@ -143,7 +158,7 @@ The full source code of the package is available on [GitHub](https://github.com/
 
 Now is the time to move to the Android part of the application.
 
-## User interface on Android
+## Reuse Swift code on Android
 
 We create a new Android project in Android Studio. For this, we can use the *New Project* wizard and select the *Empty Activity* template as well as the *Kotlin DSL* as the *Build configuration language*  that will create a new Android project with the necessary files and configurations.
 
