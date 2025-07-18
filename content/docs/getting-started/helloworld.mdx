@@ -227,60 +227,56 @@ Please ensure that the Android NDK is installed. See also Installation > Android
     Once the build has succeeded, you can find the Java interop code here:
     ![img](./../img/helloworld_android_buildJavaClasses.png)
 
-20. Run the Android Project
-    Please run the Android project. You have to assign a simulator and configure a run file.
+20. Run the Android Project. You have to assign a simulator and configure a run file. This step is not described in detail here, as these are basic Android development steps.
 
-<Callout type="warn">
-If your run button in Android Studio is grayed out, this is an Android Studio issue and you need to restart Android Studio. 
-</Callout>
-
-![img](./../img/helloworld_android_run1.png)
+	<Callout type="warn">
+	If your run button in Android Studio is grayed out, this is an Android Studio issue and you need to restart Android Studio. 
+	</Callout>
+	
 
 ### Invoke Swift logic from Android UI
 
 By now, we compiled Swift code to Android. We included the resulting library called HelloWorld in the Android project and had SCADE generate the interop code. We now can bind the logic to the UI.
 
-21. Import the code using the import command. Add:
+21. Import the code using the **import** command. Add:
+		
+	```kotlin
+	import HelloWorld.GreetingService
+	```
+
+	If Android Studio cannot find the namespace or class and autocompletion does not work, use the **Sync Project with Gradle File** menu from Android Studio.
+	
+	 ![img](./../img/helloworld-android-Sync.png)
+
+
+22. Add the line **System.loadLibrary("HelloWorld")** in the `onCreate` method to load the HelloWorld library.
+
+	```kotlin
+	class MainActivity : ComponentActivity() {
+	    override fun onCreate(savedInstanceState: Bundle?) {
+	        super.onCreate(savedInstanceState)
+	        enableEdgeToEdge()
+	
+	        System.loadLibrary("HelloWorld")
+	```
+	
+	This loads your Swift code into memory and the code is ready to use.
+
+23. Finally, call the Swift code. SCADE produces extremely powerful interop code. Calling our **greet** method developed in Swift code is extremely easy. Add the following code in the next line:
 
 ```kotlin
-import HelloWorld.GreetingService
-```
-
-If Android Studio cannot find the namespace or class, use the **Sync Project with Gradle File** menu from Android Studio.
-
-22. Add code to load the library
-    Add the line **System.loadLibrary("HelloWorld")** in the `onCreate` method to load the HelloWorld library.
-
-```kotlin
-class MainActivity : ComponentActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
-
-        System.loadLibrary("HelloWorld")
-```
-
-This loads your Swift code into memory and the code is ready to use.
-
-23. Finally, call the Swift code
-    SCADE interop functionality produces extremely powerful interop code. Calling our **greet**
-
-
-method developed in Swift code is extremely easy. Add the following code in the next line:
-
-```kotlin
-val greeting = GreetingService().greet("rocks") { name: String -> "SCADE AppLogic " + name.uppercase() + "!!!" }
+val greeting = GreetingService().greet("rocks")
+	 { name: String -> "SCADE AppLogic " + name.uppercase() + "!!!" }
 ```
 
 * First, we instantiate the `GreetingService`.
 * Then we call the **greet** method with parameter `name` set to `"rocks"`.
 * We then pass in the closure:
-
   * The closure takes a `String` as input, converts it to uppercase, and concatenates it with two `String` constants.
   * The closure then returns the result.
 * We store the result in a variable `greeting`.
 
-Great! So we coded our first call to a Swift method in Android.
+Great! So we coded our first call to a Swift method in Android. 
 
 24. Bind the variable to the UI Text label
     Bind the `greeting` variable into the UI. In the **setContent** code, set `name = greeting`.
