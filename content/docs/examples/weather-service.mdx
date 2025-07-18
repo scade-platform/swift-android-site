@@ -147,15 +147,11 @@ class WeatherService {
 ```
 
 **Explanation:**
-<ul> 
-<li> We define a class `WeatherService` with two asynchronous methods:</li>
-<ul> 
-  <li> **currentTemperature(latitude:longitude:response:)** - fetches temperature from Open-Meteo at given coordinates </li>
-  <li> **currentTemperature(city:response:)** - geocodes a city name to coordinates and then fetching the temperature for those coordinates by calling the first function. </li>
-</ul> 
-<li> Both functions use standard Foundation functionalities (e.g., `URL` for networking, `JSONSerialization` for parsing JSON data) and Swift's `async/await` syntax.</li>
-<li> The code runs on any Apple platform. The `Swift4j` package with the @jvm attribute exposes the WeatherService class and its methods as a Java API for Android. Please, note that the first function is private and hidden from Java; the second is public and accessible.</li>
-</ul>
+- We define a class `WeatherService` with two asynchronous methods:
+  - **currentTemperature(latitude:longitude:response:)** - fetches temperature from Open-Meteo at given coordinates
+  - **currentTemperature(city:response:)** - geocodes a city name to coordinates and then fetching the temperature for those coordinates by calling the first function.
+- Both functions use standard Foundation functionalities (e.g., `URL` for networking, `JSONSerialization` for parsing JSON data) and Swift's `async/await` syntax.
+- The code runs on any Apple platform. The `Swift4j` package with the @jvm attribute exposes the WeatherService class and its methods as a Java API for Android. Please, note that the first function is private and hidden from Java; the second is public and accessible.
 
 The full source code of the package is available on [GitHub](https://github.com/scade-platform/swift4j-examples/tree/main/Packages/WeatherService).
 
