@@ -203,7 +203,7 @@ Next, we add a configuration block for the plugin, where we specify the path to 
 
 After this, we can just build the project, if you don't have the *Swift Toolchain for Android* installed, the plugin will download it automatically and install it. If you already have the toolchain installed, the plugin will check the installed version and update it if a new version is available. Also, the plugin will generate the Java API for the `WeatherService` class so that we can immedately access it from our Kotlin code.
 
-### MainActivity.kt
+### Bind Swift logic to Android UI control
 
 Now, we can open the `MainActivity.kt` file and implement the user interface logic. For the sake of simplicity we just add a label that will show the current temperature for a given city. First, we add an import statement for the `WeatherService` class exported from the Swift package previously at the top of the file:
 
