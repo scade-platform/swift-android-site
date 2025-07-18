@@ -256,6 +256,12 @@ class MainActivity : ComponentActivity() {
 }
 ```
 
-In the code above, we create a mutable state variable `temperatureText` to hold the current temperature text that will be displayed in the user interface. By default, it is set to "Current temperature: retrieving...". Next, we setup the user interface using Jetpack Compose, where we define a `Temperature` composable function that displays the current temperature text. Finally, we load the `WeatherService` library containing our application logic, and call the `WeatherService` to get the current temperature in Berlin by calling the `currentTemperature(city:response:)` method and updating the `temperatureText` variable inside the Kotlin lambda passed to the function as a callback. Please, note that we can just pass a Kotlin lambda to the Swift function and it will be called asynchronously when the data is available.
+**Explanation:**
+- A mutable state variable `temperatureText` holds the temperature string for UI display.
+- The UI is set up using Jetpack Compose. The `Temperature` composable function displays the current temperature.
+- The Swift library is loaded via System.loadLibrary("WeatherService").
+- An instance of `WeatherService` is created, and its method `currentTemperature(city:response:)` is called (with "Berlin" as an example). The callback updates `temperatureText` with the retrieved temperature.
+- Note that a Kotlin lambda is passed to the Swift function and is called asynchronously upon data availability.
 
+### Full Source Code Availability
 The full source code of the Android application is available on [GitHub](https://github.com/scade-platform/swift4j-examples/tree/main/Android/WeatherApp).
