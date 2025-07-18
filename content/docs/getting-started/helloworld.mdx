@@ -227,7 +227,7 @@ Please ensure that the Android NDK is installed. See also Installation > Android
     Once the build has succeeded, you can find the Java interop code here:
     ![img](./../img/helloworld_android_buildJavaClasses.png)
 
-20. Run the Android Project. You have to assign a simulator and configure a run file. This step is not described in detail here, as these are basic Android development steps.
+20. To test the setup., run the Android app in the simulator. You have to assign a simulator in Android Studio and configure a run file. This step is not described in detail here, as these are basic Android development steps.
 
 	<Callout type="warn">
 	If your run button in Android Studio is grayed out, this is an Android Studio issue and you need to restart Android Studio. 
@@ -263,20 +263,20 @@ By now, we compiled Swift code to Android. We included the resulting library cal
 	This loads your Swift code into memory and the code is ready to use.
 
 23. Finally, call the Swift code. SCADE produces extremely powerful interop code. Calling our **greet** method developed in Swift code is extremely easy. Add the following code in the next line:
-
-```kotlin
-val greeting = GreetingService().greet("rocks")
-	 { name: String -> "SCADE AppLogic " + name.uppercase() + "!!!" }
-```
-
-* First, we instantiate the `GreetingService`.
-* Then we call the **greet** method with parameter `name` set to `"rocks"`.
-* We then pass in the closure:
-  * The closure takes a `String` as input, converts it to uppercase, and concatenates it with two `String` constants.
-  * The closure then returns the result.
-* We store the result in a variable `greeting`.
-
-Great! So we coded our first call to a Swift method in Android. 
+	
+	```kotlin
+	val greeting = GreetingService().greet("rocks")
+		 { name: String -> "SCADE AppLogic " + name.uppercase() + "!!!" }
+	```
+	
+	* First, we instantiate the `GreetingService`.
+	* Then we call the **greet** method with parameter `name` set to `"rocks"`.
+	* We then pass in the closure:
+	  * The closure takes a `String` as input, converts it to uppercase, and concatenates it with two `String` constants.
+	  * The closure then returns the result.
+	* We store the result in a variable `greeting`.
+	
+	Great! So we coded our first call to a Swift method in Android. 
 
 24. Bind the `greeting` variable into the UI text label. In the **setContent** code, set `name = greeting`.
 
