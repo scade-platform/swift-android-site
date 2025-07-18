@@ -6,9 +6,10 @@ description: Tutorial to develop a minimal Android App using Swift
 ## Overview
 The HelloWorld example shows how to develop a simple Swift class in Xcode, compile it to a native Android library, and very easily call the code in Android Studio. 
 
-| Functionality used | Technology used |
-|:-------------------|:----------------|
-| • Call methods of a Swift class  <br/>• Pass closures |• Swift Android compiler <br/>• Swift4J   |
+| Functionality demonstrated | Technology demonstrated |Github Project |
+|:-------------------|:----------------|:----------------|
+| • Call methods of a Swift class  <br/>• Support of closures |• Swift Android compiler <br/>• Swift4J | • n.a <br/><br/> |
+
 
 The HelloWorld tutorial is extremely detailed. Please ensure you understand each step. In other tutorials, we will omit some instructions to avoid instruction bloat. 
 
@@ -27,13 +28,13 @@ The HelloWorld tutorial is extremely detailed. Please ensure you understand each
 	```swift
 	swift package init --type library --name HelloWorld
 	```
-Make sure to use it from **inside** your project directory:
+	Make sure to use it from **inside** your project directory:
 
 	```bash filename="Terminal"
 	./Projects/HelloWorld  % swift package init --type library --name HelloWorld
 	```
 
-As a result, you see:
+	As a result, you see:
 
 	```bash filename="Terminal"
 	Creating library package: HelloWorld
@@ -67,7 +68,7 @@ As a result, you see:
 		- **fct**: a variable of type closure
 	- The function executes the closure using the `name` argument as an input and returns a `String`.
 
-![img](./../img/helloworld-xcode2_newGreet.png)
+	![img](./../img/helloworld-xcode2_newGreet.png)
 
 ### Add @jvm to compile the class to Android
 Now we make the changes to be able to compile the class to Android.
@@ -234,7 +235,7 @@ Please ensure that the Android NDK is installed. See also Installation > Android
 	</Callout>
 	
 
-### Invoke Swift logic from Android UI
+### Bind Swift logic to Android UI control
 
 By now, we compiled Swift code to Android. We included the resulting library called HelloWorld in the Android project and had SCADE generate the interop code. We now can bind the logic to the UI.
 
@@ -270,8 +271,7 @@ By now, we compiled Swift code to Android. We included the resulting library cal
 	```
 	
 	* First, we instantiate the `GreetingService`.
-	* Then we call the **greet** method with parameter `name` set to `"rocks"`.
-	* We then pass in the closure:
+	* Then we call the **greet** method with parameter `name` set to `"rocks"` and pass in the closure:
 	  * The closure takes a `String` as input, converts it to uppercase, and concatenates it with two `String` constants.
 	  * The closure then returns the result.
 	* We store the result in a variable `greeting`.
