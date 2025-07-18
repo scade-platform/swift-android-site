@@ -278,40 +278,39 @@ val greeting = GreetingService().greet("rocks")
 
 Great! So we coded our first call to a Swift method in Android. 
 
-24. Bind the variable to the UI Text label
-    Bind the `greeting` variable into the UI. In the **setContent** code, set `name = greeting`.
+24. Bind the `greeting` variable into the UI text label. In the **setContent** code, set `name = greeting`.
 
-```kotlin
-setContent {
-    HelloWorldTheme {
-        Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-            Greeting(
-                name = greeting,
-                modifier = Modifier.padding(innerPadding)
-            )
-        }
-    }
-}
-```
+	```kotlin
+	setContent {
+	    HelloWorldTheme {
+	        Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
+	            Greeting(
+	                name = greeting,
+	                modifier = Modifier.padding(innerPadding)
+	            )
+	        }
+	    }
+	}
+	```
 
-As a final (optional) step, we make the UI more beautiful by centering the label. Replace the **Greeting function** with the following code:
+	As a final (optional) step, we make the UI more beautiful by centering the label. Replace the **Greeting function** with the following code:
+	
+	```kotlin
+	@Composable
+	fun Greeting(name: String, modifier: Modifier = Modifier) {
+	    Box(
+	        modifier = modifier.fillMaxSize(),
+	        contentAlignment = Alignment.Center
+	    ) {
+	        Text(text = "$name!")
+	    }
+	}
+	```
 
-```kotlin
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Box(
-        modifier = modifier.fillMaxSize(),
-        contentAlignment = Alignment.Center
-    ) {
-        Text(text = "$name!")
-    }
-}
-```
+	This centers the text control by introducing a `Box` control.
 
-This centers the text control by introducing a `Box` control.
-
-**We are done!**
-
+	**	We are done coding !**
+	
 Here’s the full code for `MainActivity.kt`:
 
 ![img](./../img/helloworld-android-MainActivity.png)
@@ -380,4 +379,4 @@ fun GreetingPreview() {
 25. Run your first cross-platform native Swift app
     Press the run button and see the application running: blaba
 
-![img](./../img/helloworld-android-app.png)
+	![img](./../img/helloworld-android-app.png)
