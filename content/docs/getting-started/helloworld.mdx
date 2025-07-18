@@ -341,7 +341,9 @@ class MainActivity : ComponentActivity() {
 
         System.loadLibrary("HelloWorld")
 
-        val greeting = GreetingService().greet("rocks") { name: String -> "SCADE AppLogic " + name.uppercase() + "!!!" }
+		 // Call Swift Code easily 
+        val greeting = GreetingService().greet("rocks") 
+        		{ name: String -> "SCADE AppLogic " + name.uppercase() + "!!!" }
 
         setContent {
             HelloWorldTheme {
