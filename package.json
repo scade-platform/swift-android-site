@@ -11,6 +11,7 @@
   "engines": {
     "node": ">=20.0.0"
   },
+  "type": "module",
   "dependencies": {
     "@headlessui/react": "2.2.4",
     "@heroicons/react": "2.2.0",
