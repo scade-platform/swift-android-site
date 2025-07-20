@@ -12,7 +12,7 @@ export default function SwiftForAndroid() {
 
   return (
     <div
-      className="grid grid-rows-[1fr] items-center justify-items-center p-8 font-[family-name:var(--font-geist-sans)]">
+      className="grid grid-rows-[1fr] items-center justify-items-center p-8 font-(family-name:--font-geist-sans)">
 
       <main className="flex flex-col gap-8 row-start-1 items-center sm:items-start">
         <div>
@@ -20,14 +20,14 @@ export default function SwiftForAndroid() {
           <h1 className="dynamic-title">Swift For Android</h1>
         </div>
         <Image
-          className="dark m-[auto]"
+          className="dark m-auto"
           src={`${basePath}/logo-swift.png`}
           alt="Next.js logo"
           width={200}
           height={20}
           priority
         />
-        <ol className="list-inside text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)] m-[auto]">
+        <ol className="list-inside text-sm text-center sm:text-left font-(family-name:--font-geist-mono) m-auto">
           <div>
             {<div className="container">
               {postMatadata.map((post, postIndex) => {
@@ -38,15 +38,15 @@ export default function SwiftForAndroid() {
             </div>}
           </div>
         </ol>
-        <div className="flex gap-4 items-center flex-col sm:flex-row m-[auto]">
+        <div className="flex gap-4 items-center flex-col sm:flex-row m-auto">
           <Link
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
+            className="rounded-full border border-solid border-black/8 dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
             href="/docs/getting-started/developmentprocess"
           >
             Get Started
           </Link>
         </div>
-        <div className="flex items-center m-[auto]"><FooterSmall/></div>
+        <div className="flex items-center m-auto"><FooterSmall/></div>
       </main>
 
     </div>

@@ -19,7 +19,7 @@ export default function Navbar() {
         <Link href='/' className="navbar-brand lg:ml-20">
           <img src={`${basePath}/logo-scade.svg`} className="img-fluid" alt="logo"/>
         </Link>
-        <div className="navbar-links ml-[auto] px-6">
+        <div className="navbar-links ml-auto px-6">
           {navigation.map((item) => (
             <Link
               key={item.name}
