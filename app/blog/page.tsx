@@ -9,7 +9,7 @@ export default function SwiftForAndroid() {
   return (
     <div>
       <div
-        className="pt-16 grid grid-rows-[1fr] items-center justify-items-center p-8 font-[family-name:var(--font-geist-sans)]">
+        className="pt-16 grid grid-rows-[1fr] items-center justify-items-center p-8 font-(family-name:--font-geist-sans)">
 
         <main className="flex flex-col gap-8 row-start-1 items-center sm:items-start">
           {<div className="container prose">
@@ -22,7 +22,7 @@ export default function SwiftForAndroid() {
         </main>
 
       </div>
-      <div className="flex items-center m-[auto]"><Footer/></div>
+      <div className="flex items-center m-auto"><Footer/></div>
     </div>
 
   );

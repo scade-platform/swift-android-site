@@ -29,7 +29,7 @@ export default function RootLayout({children}: {children: React.ReactNode; }) {
   return (
     <html lang="en" suppressHydrationWarning>
     <body
-      className={`${interSans.variable} ${geistMono.variable} pt-[64px] antialiased flex flex-col font-[family-name:var(--font-inter-sans)]`}>
+      className={`${interSans.variable} ${geistMono.variable} pt-[64px] antialiased flex flex-col font-(family-name:--font-inter-sans)`}>
     <ScrollToTop />
     <ThemeProvider
       enableSystem={true} // Enable system theme detection

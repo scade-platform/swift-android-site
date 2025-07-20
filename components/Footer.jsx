@@ -36,7 +36,7 @@ const Footer = () => {
           </Link>
         </nav>
       </div>
-      <div className="footer-links ml-[auto] text-center px-6 mt-8">
+      <div className="footer-links ml-auto text-center px-6 mt-8">
         {navigation.map((item) => (
           <Link
             key={item.name}

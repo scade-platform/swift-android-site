@@ -6,9 +6,10 @@ import "./docs.css";
 
 export default function Layout({ children }: { children: ReactNode }) {
   return (
-    <DocsLayout disableThemeSwitch={true}
-    sidebar={{
-      hideSearch:true,
+    <DocsLayout
+      disableThemeSwitch={true}
+    searchToggle={{
+      enabled: false
     }} tree={source.pageTree} >
       <ThemeProvider> {children} </ThemeProvider>
     </DocsLayout>

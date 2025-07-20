@@ -4,14 +4,14 @@ description: Tutorial to develop a minimal Android App using Swift
 ---
 
 ## Overview
-The HelloWorld example shows how to develop a simple Swift class in Xcode, compile it to a native Android library, and very easily call the code in Android Studio. 
+The HelloWorld example shows how to develop a simple Swift class in Xcode, compile it to a native Android library, and very easily call the code in Android Studio.
 
 | Functionality demonstrated | Technology demonstrated |Github Project |
 |:-------------------|:----------------|:----------------|
 | • Call methods of a Swift class  <br/>• Support of closures |• Swift Android compiler <br/>• Swift4J | • n.a <br/><br/> |
 
 
-The HelloWorld tutorial is extremely detailed. Please ensure you understand each step. In other tutorials, we will omit some instructions to avoid instruction bloat. 
+The HelloWorld tutorial is extremely detailed. Please ensure you understand each step. In other tutorials, we will omit some instructions to avoid instruction bloat.
 
 ## Develop in Xcode
 
@@ -140,28 +140,28 @@ The entire updated `Package.swift` file should now look like below:
 	```swift
 	// swift-tools-version: 5.10
 	// The swift-tools-version declares the minimum version of Swift required to build this package.
-	
+
 	import Foundation
 	import PackageDescription
-	
+
 	let package = Package(
 	    name: "HelloWorld",
-	
+
 	    platforms: [
 	        .macOS(.v13)
 	       ],
-	
+
 	    products: [
 	        .library(
 	            name: "HelloWorld",
 	            type: .dynamic,
 	            targets: ["HelloWorld"])
 	    ],
-	
+
 	    dependencies: [
 	        .package(url: "https://github.com/scade-platform/swift4j.git", from: "1.2.1")
 	    ],
-	
+
 	    targets: [
 	        .target(
 	            name: "HelloWorld",
@@ -201,13 +201,13 @@ Please ensure that the Android NDK is installed. See also Installation > Android
 
 17. Add the SCADE Swift Product Manager **plugin** under plugins:
 
-    ```gradle
+    ```groovy
     id("io.scade.gradle.plugins.android.swiftpm") version "1.1.1"
     ```
 
 18. Add the SCADE Swift Product Manager **configuration** at the bottom of the file:
 
-    ```gradle
+    ```groovy
     swiftpm {
         path = file("<fullpath>/Projects/HelloWorld")
         product = "HelloWorld"
@@ -231,22 +231,22 @@ Please ensure that the Android NDK is installed. See also Installation > Android
 20. To test the setup., run the Android app in the simulator. You have to assign a simulator in Android Studio and configure a run file. This step is not described in detail here, as these are basic Android development steps.
 
 	<Callout type="warn">
-	If your run button in Android Studio is grayed out, this is an Android Studio issue and you need to restart Android Studio. 
+	If your run button in Android Studio is grayed out, this is an Android Studio issue and you need to restart Android Studio.
 	</Callout>
-	
+
 
 ### Bind Swift logic to Android UI control
 
 By now, we compiled Swift code to Android. We included the resulting library called HelloWorld in the Android project and had SCADE generate the interop code. We now can bind the logic to the UI.
 
 21. Import the code using the **import** command. Add:
-		
+
 	```kotlin
 	import HelloWorld.GreetingService
 	```
 
 	If Android Studio cannot find the namespace or class and autocompletion does not work, use the **Sync Project with Gradle File** menu from Android Studio.
-	
+
 	 ![img](./../img/helloworld-android-Sync.png)
 
 
@@ -257,26 +257,26 @@ By now, we compiled Swift code to Android. We included the resulting library cal
 	    override fun onCreate(savedInstanceState: Bundle?) {
 	        super.onCreate(savedInstanceState)
 	        enableEdgeToEdge()
-	
+
 	        System.loadLibrary("HelloWorld")
 	```
-	
+
 	This loads your Swift code into memory and the code is ready to use.
 
 23. Finally, call the Swift code. SCADE produces extremely powerful interop code. Calling our **greet** method developed in Swift code is extremely easy. Add the following code in the next line:
-	
+
 	```kotlin
 	val greeting = GreetingService().greet("rocks")
 		 { name: String -> "SCADE AppLogic " + name.uppercase() + "!!!" }
 	```
-	
+
 	* First, we instantiate the `GreetingService`.
 	* Then we call the **greet** method with parameter `name` set to `"rocks"` and pass in the closure:
 	  * The closure takes a `String` as input, converts it to uppercase, and concatenates it with two `String` constants.
 	  * The closure then returns the result.
 	* We store the result in a variable `greeting`.
-	
-	Great! So we coded our first call to a Swift method in Android. 
+
+	Great! So we coded our first call to a Swift method in Android.
 
 24. Bind the `greeting` variable into the UI text label. In the **setContent** code, set `name = greeting`.
 
@@ -294,7 +294,7 @@ By now, we compiled Swift code to Android. We included the resulting library cal
 	```
 
 	As a final (optional) step, we make the UI more beautiful by centering the label. Replace the **Greeting function** with the following code:
-	
+
 	```kotlin
 	@Composable
 	fun Greeting(name: String, modifier: Modifier = Modifier) {
@@ -310,7 +310,7 @@ By now, we compiled Swift code to Android. We included the resulting library cal
 	This centers the text control by introducing a `Box` control.
 
 	**We are done coding !**
-	
+
 Here’s the full code for `MainActivity.kt`:
 
 ![img](./../img/helloworld-android-MainActivity.png)
@@ -341,8 +341,8 @@ class MainActivity : ComponentActivity() {
 
         System.loadLibrary("HelloWorld")
 
-		 // Call Swift Code easily 
-        val greeting = GreetingService().greet("rocks") 
+		 // Call Swift Code easily
+        val greeting = GreetingService().greet("rocks")
         		{ name: String -> "SCADE AppLogic " + name.uppercase() + "!!!" }
 
         setContent {
