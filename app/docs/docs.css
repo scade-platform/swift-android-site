@@ -44,3 +44,6 @@
 .shiki:not(.not-fumadocs-codeblock *) > *{
   border:none!important;
 }
+.prose img{
+  max-width: 100%;
+}
