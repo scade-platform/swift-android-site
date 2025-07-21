@@ -30,7 +30,6 @@ To build this weather service application, the task is split into two distinct p
 <Callout type="warn">
 	It is strongly recommended that you complete the HelloWorld example first, as it covers essential concepts that are only briefly mentioned in this example.
 </Callout>
-
 ## Develop in Xcode
 
 ### Create Xcode project
@@ -198,9 +197,9 @@ swiftpm {
 }
 ```
 
-First, we add the *Swift Packages for Gradle* plugin to our project, that will take care of building the Swift Package, generating Java API as well as packaging everthing inside the finel application.
-
-Next, we add a configuration block for the plugin, where we specify the path to the Swift Package we want to use, the name of the product we want to use from this package and the Java version we want to be compatible with (the default is 11, we use 8 because we want to support older versions of the Android API ). The last parameter specify whether we want to automatically update the *Swift Toolchain for Android*.
+** Notes: **
+- The *Swift Packages for Gradle* plugin handles building the Swift Package, generating the Java API, and packaging everything in the final application.
+- The configuration block specifies the path to the Swift Package, the product name, the target Java version (8 is chosen here to support older Android APIs), and whether to automatically update the *Swift Toolchain for Android*.
 
 After this, we can just build the project, if you don't have the *Swift Toolchain for Android* installed, the plugin will download it automatically and install it. If you already have the toolchain installed, the plugin will check the installed version and update it if a new version is available. Also, the plugin will generate the Java API for the `WeatherService` class so that we can immedately access it from our Kotlin code.
 
