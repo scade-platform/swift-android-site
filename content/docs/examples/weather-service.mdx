@@ -9,7 +9,7 @@ This example demonstrates how to build a weather service application that retrie
 
 | Functionality demonstrated | Technology demonstrated |Github Project |
 |:-------------------|:----------------|:----------------|
-| • Retrieving current temperature by city name <br/>• Geocoding city names into coordinates <br/>• Fetching weather data using coordinates <br/>• Chaining multiple API calls <br/>• Asynchronous network requests with closures <br/>• Dynamic UI update with fetched temperature <br/>• Reusing Swift logic inside Android UI |• Swift Android compiler <br/>• Swift4J <br/>• SwiftPM Gradle for Android <br/>• Foundation framework <br/>• Swift async/await <br/>• Jetpack Compose UI framework | [Examples](https://github.com/scade-platform/swift4j-examples) <br/><br/> |
+| • Retrieving current temperature by city name <br/>• Geocoding city names into coordinates <br/>• Fetching weather data using coordinates <br/>• Asynchronous network requests with closures <br/>• Dynamic UI update with fetched temperature <br/>• Reusing Swift logic inside Android UI |• Swift Android compiler <br/>• Swift4J <br/>• SwiftPM Gradle for Android <br/>• Foundation framework <br/>• Swift async/await | [Examples](https://github.com/scade-platform/swift4j-examples) <br/><br/> |
 
 
 The Weather Service example highlights the most commonly used features from the Foundation framework:
@@ -261,6 +261,9 @@ class MainActivity : ComponentActivity() {
 - The Swift library is loaded via System.loadLibrary("WeatherService").
 - An instance of `WeatherService` is created, and its method `currentTemperature(city:response:)` is called (with "Berlin" as an example). The callback updates `temperatureText` with the retrieved temperature.
 - Note that a Kotlin lambda is passed to the Swift function and is called asynchronously upon data availability.
+
+## Run the native Swift app on Android
+![img](./../img/weather-app-android.png)
 
 ### Full Source Code Availability
 The full source code of the Android application is available on [GitHub](https://github.com/scade-platform/swift4j-examples/tree/main/Android/WeatherApp).
