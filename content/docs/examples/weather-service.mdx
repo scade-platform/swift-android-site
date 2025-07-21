@@ -27,6 +27,10 @@ To build this weather service application, the task is split into two distinct p
 - **Core App Logic:** Developed in Swift to handle data fetching and processing.
 - **User Interface:** Created in Android Studio to target the previously developed logic.
 
+<Callout type="warn">
+	It is strongly advised that you complete the HelloWorld example beforehand, as it covers essential concepts that are only briefly addressed in this example.
+</Callout>
+
 ## Develop in Xcode
 
 ### Create Xcode project
@@ -153,8 +157,6 @@ class WeatherService {
 - Both functions use standard Foundation functionalities (e.g., `URL` for networking, `JSONSerialization` for parsing JSON data) and Swift's `async/await` syntax.
 - The code runs on any Apple platform. The `Swift4j` package with the @jvm attribute exposes the WeatherService class and its methods as a Java API for Android. Please, note that the first function is private and hidden from Java; the second is public and accessible.
 
-The full source code of the package is available on [GitHub](https://github.com/scade-platform/swift4j-examples/tree/main/Packages/WeatherService).
-
 Now is the time to move to the Android part of the application.
 
 ## Reuse Swift code on Android
@@ -264,6 +266,3 @@ class MainActivity : ComponentActivity() {
 
 ## Run the native Swift app on Android
 ![img](./../img/weather-app-android.png)
-
-### Full Source Code Availability
-The full source code of the Android application is available on [GitHub](https://github.com/scade-platform/swift4j-examples/tree/main/Android/WeatherApp).
