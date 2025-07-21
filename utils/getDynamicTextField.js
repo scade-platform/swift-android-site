@@ -1,8 +1,6 @@
 import fs from "fs";
 import matter from "gray-matter";
 
-
-
 export default function getDynamicTextField (basePath)  {
     const folder = basePath + "/"
     const files = fs.readdirSync(folder)
