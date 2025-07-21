@@ -45,7 +45,9 @@
   border:none!important;
 }
 .prose img{
-  max-width: 80%!important;
+  width: auto!important;
+  max-width: 100%!important;
+  max-height: calc(100dvh - 200px)!important;
   display: inline-block!important;
   margin: 0 auto!important;
 }
