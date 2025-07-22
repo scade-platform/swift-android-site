@@ -34,8 +34,8 @@ Follow these steps to change site the content:
    - You may edit text inside page but be sure you have not touched any tags and mark down is not supported.
 
 2. **What's new**
-   - Open the `content/Blog/Blog.md` file.
-   - You may edit text inside like with simple .md file.
+   - Open the `content/Blog/` folder.
+   - You may edit text inside each article like with simple .md (https://www.markdownguide.org/basic-syntax/#overview) file or create new articles
 
 3. **swift-for-android**
    - Open the `content/SwiftForAndroid/SwiftForAndroidText.md` file.
