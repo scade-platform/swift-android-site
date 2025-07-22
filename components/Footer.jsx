@@ -7,7 +7,7 @@ import { FaGithub, FaXTwitter, FaLinkedin, FaDiscord } from "react-icons/fa6";
 const navigation = [
   {name: "Get started", href: "/docs/getting-started/developmentprocess"},
   {name: "What's new", href: "/blog"},
-  {name: "Pricing", href: "/pricing"},
+  // {name: "Pricing", href: "/pricing"},
 ];
 
 const Footer = () => {
