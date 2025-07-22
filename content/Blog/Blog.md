@@ -1,17 +1,15 @@
 ---
-title: What's new
-description: News and updates re Swift for Android
+title: What's new blog
+description: News and updates for Swift for Android
 ---
 
-# Redesigned wwww.scade.io is now live
-July 14 , 2025
 
-We reworked our website to further enhance clarity and show you the ease with which you can develop Android applications with Swift.
+##Redesigned wwww.scade.io is now live
+July 14,2025
 
-# July 2025 SCADE Applogic Update
-July 14 , 2025
+We are pleased to announced our redesigned websites. Both the main page and the technical documentation has been redesigned. 
 
-## Swift toolchain for Android version 6.1.1
-  Full support for the latest Swift 6.1 – bringing all the newest language features seamlessly into your projects.
-## SwiftPM Gradle for Android version 1.1.1
-## swift4j
+##Beta 2 of SCADE Applogic released
+February 11,2025
+
+SCADE AppLogic is further maturing with the release of our beta 2.
