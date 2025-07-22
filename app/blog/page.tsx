@@ -11,7 +11,7 @@ export default function BlogPage() {
       <div
         className="pt-16 grid grid-rows-[1fr] items-center justify-items-center p-8 font-(family-name:--font-geist-sans)">
 
-        <main className="flex flex-col gap-8 row-start-1 items-center sm:items-start">
+        <main className="flex flex-col gap-8 row-start-1 items-center sm:items-start pb-24">
           {<div className="container prose">
             {postMatadata.map((post, postIndex) => {
               return (
