@@ -1,4 +1,4 @@
-## Redesigned wwww.scade.io is now live
+# Redesigned wwww.scade.io is now live
 <span style="color:gray">
 July 14, 2025
 </span>
