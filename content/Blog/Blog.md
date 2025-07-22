@@ -1,9 +1,3 @@
----
-title: What's new blog
-description: News and updates for Swift for Android
----
-
-
 ## Redesigned wwww.scade.io is now live
 July 14,2025
 
