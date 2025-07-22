@@ -8,16 +8,19 @@ export default function getDynamicTextField (basePath)  {
 
     const posts = markdownPost.map((filename) => {
         const fileContents = fs.readFileSync(`${basePath}/${filename}`, "utf-8")
-        const matterResult = matter(fileContents)
+        const matterResult = matter(fileContents);
+        const date = new Date(matterResult.data.publishedDate)
         return{
+            publishedDate: date,
+            publishedFormated: date.toLocaleDateString(),
+            description: matterResult.data.description,
             title: matterResult.data.title,
             id: matterResult.data.id,
-
             content: matterResult.content,
         }
 
     })
-    return posts
+    return posts.sort((a, b) => b.publishedDate - a.publishedDate)
 }
 
 
