@@ -20,7 +20,7 @@ export default function Home() {
           <Image
             className="dark m-auto"
             src={`${basePath}/logo-swift.png`}
-            alt="Next.js logo"
+            alt="App logo"
             width={200}
             height={20}
             priority
