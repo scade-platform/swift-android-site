@@ -31,21 +31,6 @@ Follow these steps to change site the content:
 
 1. **Homepage**
    - Open the `app/page.tsx` file.
-   - You may edit text inside page but be sure you have not touched any tags and mark down is not supported.
-
-2. **What's new**
-   - Open the `content/Blog/` folder.
-   - You may edit text inside each article like with simple .md (https://www.markdownguide.org/basic-syntax/#overview) file or create new articles
-
-3. **swift-for-android**
    - Open the `content/SwiftForAndroid/SwiftForAndroidText.md` file.
    - You may edit text inside like with simple .md file.
-
-## Edit Documentation
-
-- Open the `content/docs` folder.
-- If a `.md` file is added to the `/docs` folder, its content will be automatically generated in the website documentation.
-- Edit the `meta.json` file to organize the newly added file among the others. A folder can also be sorted like a file.
-- If a folder is added, a `meta.json` file is required to sort the content inside that folder.
-- If `meta.json` is not created inside a folder, the files will be sorted alphabetically.
 
