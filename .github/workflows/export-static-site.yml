@@ -24,7 +24,7 @@ jobs:
       - name: Build project
         run: npm run build
         env:
-          NEXT_PUBLIC_BASE_PATH: /swift-android-site
+          NEXT_PUBLIC_BASE_PATH: /
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
