@@ -57,6 +57,15 @@
   }
 }
 
+.bg{
+  background-color: var(--background);
+}
+
+
+.bg-foreground{
+  background-color: var(--foreground);
+}
+
 .border-ios{
   border: 2px solid var(--ios);
   border-radius: var(--border-radius);

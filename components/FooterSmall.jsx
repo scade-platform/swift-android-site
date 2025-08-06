@@ -10,7 +10,7 @@ const FooterSmall = () => {
   return (
     <footer className="footer">
       <nav className="footer-nav">
-        <Link href="/docs">© {currentYear} SCADE, Inc.</Link>
+        <Link href="/docs" className="w-1 md:w-auto block text-center">© {currentYear} SCADE, Inc.</Link>
         <Link href="https://www.linkedin.com/company/scade-mobile/" target="_blank" aria-label="LinkedIn">
           <FaLinkedin />
         </Link>
