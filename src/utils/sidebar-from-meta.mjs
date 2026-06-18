@@ -26,6 +26,7 @@ function findFile(dir, baseName) {
  * Builds a Starlight sidebar tree from a directory of `meta.json` files
  * (Fumadocs-style navigation), so the submodule's content stays untouched.
  * Directories without a `meta.json` are skipped, not guessed at.
+ * A group is expanded by default if its own `meta.json` sets `"expanded": true`.
  * @param {string} dir
  * @param {string} slugPrefix
  * @param {{ excludeEntries?: string[] }} [options]
@@ -55,7 +56,11 @@ export function sidebarFromMeta(dir, slugPrefix, { excludeEntries = [] } = {}) {
 				continue;
 			}
 			const subItems = sidebarFromMeta(subDir, `${slugPrefix}/${githubSlug(entry)}`);
-			items.push({ label: subMeta.title ?? entry, items: subItems });
+			items.push({
+				label: subMeta.title ?? entry,
+				items: subItems,
+				collapsed: !subMeta.expanded,
+			});
 			continue;
 		}
 
