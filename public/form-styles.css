@@ -1,0 +1,94 @@
+:root {
+    --background: #ffffff;
+    --foreground: #0a0a0a;
+    --muted: #7F7F7F;
+    --muted-text: #7F7F7F;
+    --accent: #1B6081;
+    --ios: #FD9226;
+    --android: #51A637;
+    --breakpoint-xs: 480px;
+    --breakpoint-sm: 576px;
+    --breakpoint-md: 768px;
+    --breakpoint-lg: 992px;
+    --breakpoint-xl: 1200px;
+    --border-radius: 30px;
+    --icon-color: var(--foreground);
+    --foreground-with-opacity: rgba(0, 0, 0, 0.1);
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --background: #0a0a0a;
+        --foreground: #ffffff;
+        --accent: #56bef3;
+        --muted: #474747;
+        --muted-text: #d3d3d3;
+        --ios: #FD9226;
+        --android: #51A637;
+        --foreground-with-opacity: rgba(255, 255, 255, 0.1);
+    }
+}
+html, body, .ml-form-embedWrapper{
+    background: var(--background)!important;
+    color: var(--foreground)!important;
+}
+.ml-form-embedWrapper h4,
+.ml-form-embedWrapper p,
+.ml-form-embedWrapper label{
+    color: var(--muted-text)!important;
+}
+#mailerlite .ml-embedded .ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-embedSubmit button{
+    background: var(--muted)!important;
+    color: var(--foreground)!important;
+}
+
+#mailerlite .ml-embedded .ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-embedSubmit button:hover{
+    background: var(--muted)!important;
+    color: var(--foreground)!important;
+    opacity: 0.8;
+}
+#mailerlite .ml-embedded .ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-embedContent > *,
+#mailerlite .ml-embedded .ml-form-embedContainer .ml-form-embedWrapper .ml-form-successBody .ml-form-successContent > *{
+    text-align: center!important;
+}
+#mailerlite .ml-embedded .ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-fieldRow textarea,
+#mailerlite .ml-embedded .ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-horizontalRow textarea,
+#mailerlite .ml-embedded .ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-fieldRow input{
+    background: var(--muted)!important;
+    color: var(--foreground)!important;
+    border: none!important;
+}
+
+@media (prefers-color-scheme: light) {
+    #mailerlite .ml-embedded .ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-embedSubmit button{
+        background: var(--muted)!important;
+        color: var(--background)!important;
+    }
+
+    #mailerlite .ml-embedded .ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-embedSubmit button:hover{
+        background: var(--muted)!important;
+        color: var(--background)!important;
+        opacity: 0.8;
+    }
+    #mailerlite .ml-embedded .ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-fieldRow textarea,
+    #mailerlite .ml-embedded .ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-horizontalRow textarea,
+    #mailerlite .ml-embedded .ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-fieldRow input{
+        background: var(--background)!important;
+        color: var(--foreground)!important;
+        border: 1px solid var(--muted)!important;
+    }
+}
+body {
+    margin: 0!important;
+}
+.ml-embedded {
+    height: 100dvh;
+    width: 100dvw;
+}
+.embedForm{
+    width: 100%!important;
+    max-width: 100%!important;
+}
+.ml-embedded > .ml-form-embedContainer{
+    height: 100dvh;
+}

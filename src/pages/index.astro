@@ -1,0 +1,161 @@
+---
+import { Image } from 'astro:assets';
+import logo from '../assets/logo-swift.png';
+
+const currentYear = new Date().getFullYear();
+
+const socialLinks = [
+  { label: 'LinkedIn', href: 'https://www.linkedin.com/company/scade-mobile/' },
+  { label: 'Medium', href: 'https://medium.com/@SCADE' },
+  { label: 'Facebook', href: 'https://www.facebook.com/SwiftForAndroidAndiOS' },
+  { label: 'X', href: 'https://x.com/scade_platform' },
+  { label: 'Discord', href: 'https://discord.gg/qVWq5vmB' },
+  { label: 'GitHub', href: 'https://github.com/scade-platform' },
+];
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Swift For Android</title>
+    <meta name="description" content="Build native Android and iOS apps using the Swift programming language." />
+    <link rel="icon" href="/favicon.ico" />
+  </head>
+  <body>
+    <main>
+      <h1>Swift For Android</h1>
+      <Image src={logo} alt="Swift For Android logo" width={200} height={200} />
+      <p class="tagline">Full Swift 6 support for arm64 / x86_64 / arm / x86</p>
+      <a class="cta" href="/docs/">Get Started</a>
+
+      <h3 class="newsletter-title">Subscribe to the Swift for Android Newsletter</h3>
+      <p class="newsletter-subtitle">We send updates once a month</p>
+      <iframe src="/MailerLite.html" frameborder="0" class="newsletter-frame"></iframe>
+
+      <footer>
+        <a href="/docs/" class="copyright">&copy; {currentYear} SCADE, Inc.</a>
+        <nav class="social-links">
+          {socialLinks.map((link) => (
+            <a href={link.href} target="_blank" rel="noopener noreferrer" aria-label={link.label}>
+              {link.label}
+            </a>
+          ))}
+        </nav>
+      </footer>
+    </main>
+  </body>
+</html>
+
+<style>
+  :root {
+    --background: #ffffff;
+    --foreground: #0a0a0a;
+    --muted: #7f7f7f;
+    --muted-text: #7f7f7f;
+    --accent: #1b6081;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --background: #0a0a0a;
+      --foreground: #ffffff;
+      --accent: #56bef3;
+      --muted: #474747;
+      --muted-text: #d3d3d3;
+    }
+  }
+
+  body {
+    margin: 0;
+    background: var(--background);
+    color: var(--foreground);
+    font-family: system-ui, sans-serif;
+  }
+
+  main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 3rem 1.5rem;
+    max-width: 640px;
+    margin: 0 auto;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .tagline {
+    font-family: monospace;
+    margin: 1.5rem 0;
+  }
+
+  .cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+    border: 1px solid var(--foreground);
+    background: var(--foreground);
+    color: var(--background);
+    padding: 0.75rem 1.5rem;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: opacity 0.2s;
+  }
+
+  .cta:hover {
+    opacity: 0.8;
+  }
+
+  .newsletter-title {
+    margin-top: 3rem;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+  }
+
+  .newsletter-subtitle {
+    margin: 0 0 0.5rem;
+    color: var(--muted-text);
+  }
+
+  .newsletter-frame {
+    width: 450px;
+    max-width: 100%;
+    height: 320px;
+    border: none;
+  }
+
+  footer {
+    margin-top: 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .copyright {
+    color: var(--muted-text);
+    text-decoration: none;
+  }
+
+  .social-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  .social-links a {
+    color: var(--foreground);
+    text-decoration: none;
+    font-size: 0.875rem;
+  }
+
+  .social-links a:hover {
+    color: var(--accent);
+  }
+</style>
