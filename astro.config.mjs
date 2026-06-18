@@ -1,6 +1,11 @@
 // @ts-check
+import { fileURLToPath } from 'node:url';
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
+import { sidebarFromMeta } from './src/utils/sidebar-from-meta.mjs';
+
+const docsDir = fileURLToPath(new URL('./src/content/docs/docs', import.meta.url));
+const calloutPath = fileURLToPath(new URL('./src/components/Callout.astro', import.meta.url));
 
 // https://astro.build/config
 export default defineConfig({
@@ -17,6 +22,23 @@ export default defineConfig({
 				{ icon: 'github', label: 'GitHub', href: 'https://github.com/scade-platform' },
 				{ icon: 'discord', label: 'Discord', href: 'https://discord.gg/qVWq5vmB' },
 			],
+			sidebar: sidebarFromMeta(docsDir, 'docs', { excludeEntries: ['index'] }),
 		}),
 	],
+	vite: {
+		plugins: [
+			{
+				name: 'scade-docs-callout-shim',
+				enforce: 'pre',
+				transform(code, id) {
+					if (!id.startsWith(docsDir) || !id.endsWith('.mdx')) return;
+					const importLine = `import Callout from '${calloutPath}';\n\n`;
+					const frontmatter = code.match(/^---\r?\n[\s\S]*?\r?\n---\r?\n?/);
+					if (!frontmatter) return importLine + code;
+					const end = frontmatter[0].length;
+					return code.slice(0, end) + importLine + code.slice(end);
+				},
+			},
+		],
+	},
 });

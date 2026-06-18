@@ -1,0 +1,3 @@
+[submodule "src/content/docs/docs"]
+	path = src/content/docs/docs
+	url = git@github.com:scade-platform/scade-docs.git

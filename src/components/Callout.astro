@@ -1,0 +1,14 @@
+---
+import { Aside } from '@astrojs/starlight/components';
+
+// Shim for the Fumadocs `<Callout>` component used in the scade-docs submodule,
+// mapped onto Starlight's `<Aside>` so the submodule content stays untouched.
+const typeMap = { warn: 'caution', info: 'tip', error: 'danger' };
+
+const { type = 'note' } = Astro.props;
+const asideType = typeMap[type] ?? type;
+---
+
+<Aside type={asideType}>
+	<slot />
+</Aside>
