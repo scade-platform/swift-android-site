@@ -3,8 +3,7 @@ name: Export Static Site
 on:
   push:
     branches:
-      - main
-      - master
+      - new-doc
 
 jobs:
   export:
