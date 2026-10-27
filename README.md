@@ -1,36 +1,32 @@
 # swift-android-site
-Swift for Android Site
 
----
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+Swift for Android site, built with [Astro](https://astro.build) and [Starlight](https://starlight.astro.build).
 
-## Getting Started
+## Project Structure
 
-First, run the development server locally:
-
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+```
+.
+├── public/                  # static assets (favicon, logo, newsletter form, CNAME)
+├── src/
+│   ├── assets/               # images embedded via Astro's Image component
+│   ├── content/docs/docs/    # documentation pages, served under /docs/
+│   └── pages/index.astro     # landing page, served at /
+├── astro.config.mjs
+└── package.json
 ```
 
-If you do not have npm installed, visit [https://nodejs.org/en/download/](https://nodejs.org/en/download/)  or [https://github.com/nodesource/distributions](https://github.com/nodesource/distributions) and follow the instruction on the website of your choice to download npm and Node.js. 
-For Linux users, [https://github.com/nodesource/distributions](https://github.com/nodesource/distributions) is recommended.
+## Commands
 
-Open [http://localhost:3000](http://localhost:3000) in your browser to see the result.
+All commands are run from the root of the project, from a terminal:
 
+| Command           | Action                                       |
+| :----------------- | :------------------------------------------- |
+| `npm install`       | Installs dependencies                        |
+| `npm run dev`        | Starts local dev server at `localhost:4321` |
+| `npm run build`      | Build the production site to `./dist/`      |
+| `npm run preview`    | Preview the build locally before deploying  |
 
+## Editing content
 
-## Edit Pages
-
-Follow these steps to change site the content:
-
-1. **Homepage**
-   - Open the `app/page.tsx` file.
-   - Open the `content/SwiftForAndroid/SwiftForAndroidText.md` file.
-   - You may edit text inside like with simple .md file.
-
+- **Landing page**: edit `src/pages/index.astro`.
+- **Documentation**: add or edit Markdown/MDX files under `src/content/docs/docs/`. Each file is exposed as a route under `/docs/`.
